@@ -14,19 +14,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.API/Controllers/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Application/DTOs/SignInRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Application/DTOs/SignUpRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Application/Interfaces/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Domain/Entities/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Infrastructure/Data/UserDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Infrastructure/Entities/AppIdentityUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService.Infrastructure/Services/UserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="initial commit / base UserService implementation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -237,8 +225,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758049639439</updated>
-      <workItem from="1758049641628" duration="5766000" />
+      <workItem from="1758049641628" duration="6138000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit / base UserService implementation">
+      <option name="closed" value="true" />
+      <created>1758055945627</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1758055945627</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,5 +244,7 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="initial commit / base UserService implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit / base UserService implementation" />
   </component>
 </project>
