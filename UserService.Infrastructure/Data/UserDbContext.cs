@@ -6,4 +6,12 @@ using UserService.Infrastructure.Entities;
 namespace UserService.Infrastructure.Data;
 
 public class UserDbContext(DbContextOptions<UserDbContext> options)
-    : IdentityDbContext<AppIdentityUser, IdentityRole<Guid>, Guid>(options);
+    : IdentityDbContext<AppIdentityUser, IdentityRole<Guid>, Guid>(options)
+{
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<AppIdentityUser>().ToTable("Users");
+    }
+}
