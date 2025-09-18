@@ -46,20 +46,23 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-app.MapPost("/register", async (IUserService userService, IJwtService jwtService, RegisterModel dto) =>
+app.MapPost("/register", async (IUserService userService, IJwtService jwtService, RegisterModel dto, CancellationToken cancellationToken) =>
 {
-    var user = await userService.SignUpAsync(dto.Email, dto.Password, dto.FullName);
+    var user = await userService.SignUpAsync(dto.Email, dto.Password, dto.FullName, cancellationToken);
     var token = jwtService.GenerateToken(user);
     
     return Results.Ok(new 
     { 
+        UserId = user.Id,
+        Email = user.Email,
+        FullName = user.FullName,
         Token = token
     });
 });
 
-app.MapPost("/login", async (IUserService userService, IJwtService jwtService, LoginModel dto) =>
+app.MapPost("/login", async (IUserService userService, IJwtService jwtService, LoginModel dto, CancellationToken cancellationToken) =>
 {
-    var user = await userService.SignInAsync(dto.Email, dto.Password);
+    var user = await userService.SignInAsync(dto.Email, dto.Password, cancellationToken);
     if (user == null)
         throw new UnauthorizedAccessException("Invalid email or password");
 
@@ -67,6 +70,9 @@ app.MapPost("/login", async (IUserService userService, IJwtService jwtService, L
     
     return Results.Ok(new 
     { 
+        UserId = user.Id,
+        Email = user.Email,
+        FullName = user.FullName,
         Token = token
     });
 });

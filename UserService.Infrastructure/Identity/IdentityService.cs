@@ -11,7 +11,7 @@ public class IdentityService(
     RoleManager<IdentityRole<Guid>> roleManager)
     : IIdentityService
 {
-    public async Task<ApplicationUser> RegisterAsync(string email, string password, string fullName)
+    public async Task<ApplicationUser> RegisterAsync(string email, string password, string fullName, CancellationToken cancellationToken = default)
     {
         var user = new AppIdentityUser 
         { 
@@ -27,7 +27,7 @@ public class IdentityService(
         return new ApplicationUser(user.Id, email, fullName);
     }
 
-    public async Task<ApplicationUser?> LoginAsync(string email, string password)
+    public async Task<ApplicationUser?> LoginAsync(string email, string password, CancellationToken cancellationToken = default)
     {
         var user = await userManager.FindByEmailAsync(email);
         if (user == null) return null;
