@@ -9,31 +9,73 @@
     <projectFile profileName="http">UserService/UserService.csproj</projectFile>
     <projectFile profileName="https">UserService/UserService.csproj</projectFile>
     <projectFile profileName="UserService.Web">UserService/UserService/src/Web/Web.csproj</projectFile>
+    <projectFile profileName="http">WebApplication1/WebApplication1.csproj</projectFile>
+    <projectFile profileName="https">WebApplication1/WebApplication1.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="initial commit / base UserService implementation" />
+    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="delete class1 files">
+      <change afterPath="$PROJECT_DIR$/UserService.Application/Models/AuthModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.Application/Models/CreateUserModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.Domain/Exceptions/LoginFailedException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.Domain/Exceptions/SignUpFailedException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IJwtService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IJwtService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Models/RegisterModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/UserService.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/UserService.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Domain/Entities/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Domain/Entities/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Domain/UserService.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Domain/UserService.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Data/UserDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/UserDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Entities/AppIdentityUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Models/AppIdentityUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/20250918132831_Initial.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/20250918132831_Initial.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/UserDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/UserDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Services/JwtService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Services/JwtService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/UserService.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/UserService.Infrastructure.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18224974a54149c89edb118f3494cde537938/b5/347a17b7/HttpStatusCode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/853fe34f29b64848bf7bfa994402dcf1c910/ef/ee4a6e99/IConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f2b1d92f1ffcf2dabd664473f8c9dafa6039595ac228ce4b75a0f1619c5991/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53b0d531c06faf86bf2ae111a9a2dbce4c52a9153feb9966ade60289c71bf52/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/UserService/appsettings.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/97e85c66d22afd51ddac748e121b314e1b7a29b7cd79230a0eb3ad518fe/PoolingAsyncValueTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aa77d914d3d265ba37bfefeefc5d816e41f693f41643370d9a17bd3c14af/NpgsqlConnector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/afc76b3b88246ff664a45163f44dcef02f2b2a6aa36c729eab3fd3eae81d1/SecurityAlgorithms.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4f8b29071cfcf73e927671b936ba53110f1b613a1cc9bef4fc4f07dd0fbe9/Exception.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b741f17422844062bda644589ab84b32337fefcb677bc51957a62c3df8ad4d/AuthorizationAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c794baab3518d05f8546334d672798d62c10be97c2de99a62b39b885a637/TaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0165cb640e16fb3b8fe6932c042fc2917cd7f2770ff123cf7b9d11b5bfc6/Task.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7b38c7b68e42a73acef29a6dc1216d8ab2873c6617f3688a729528bff736/SignInManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f5f29f8ad09a2791dd1b4377273475352366e26dff81e2144329cf5411ba16cd/AuthAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="32nHuTfjyc5crkedpkNXeZzehmH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -47,18 +89,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.UserService.API: https.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "user-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.UserService">
+  <component name="RunManager" selected=".NET Launch Settings Profile.UserService.API: https">
     <configuration name="UserService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/UserService/UserService.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
@@ -213,7 +262,10 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
   </component>
@@ -235,16 +287,26 @@
       <option name="project" value="LOCAL" />
       <updated>1758055945627</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="delete class1 files">
+      <option name="closed" value="true" />
+      <created>1758189444961</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758189444961</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="initial commit / base UserService implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit / base UserService implementation" />
+    <MESSAGE value="delete class1 files" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete class1 files" />
   </component>
 </project>

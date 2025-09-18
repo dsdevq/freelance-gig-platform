@@ -1,16 +1,42 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using UserService.API.Handlers;
 using UserService.Application.Models;
-using UserService.Infrastructure.Data;
 using UserService.Infrastructure.Entities;
 using UserService.Application.Common.Interfaces;
-using UserService.Infrastructure.Identity;
+using UserService.Infrastructure;
+using UserService.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("UserDb")));
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Password settings.
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+
+    // Lockout settings.
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+
+    // User settings.
+    options.User.AllowedUserNameCharacters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = true;
+});
+
 
 builder.Services.AddIdentity<AppIdentityUser, IdentityRole<Guid>>(options =>
     {
@@ -21,9 +47,29 @@ builder.Services.AddIdentity<AppIdentityUser, IdentityRole<Guid>>(options =>
     .AddEntityFrameworkStores<UserDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.AddScoped<IIdentityService, IdentityService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]!))
+        };
+    });
+
+
+
 builder.Services.AddScoped<IUserService, UserService.Application.Services.UserService>();
-builder.Services.AddScoped<IJwtService, UserService.Infrastructure.Services.JwtService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
@@ -44,37 +90,11 @@ app.UseHttpsRedirection();
 app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
 
-app.MapPost("/register", async (IUserService userService, IJwtService jwtService, RegisterModel dto, CancellationToken cancellationToken) =>
-{
-    var user = await userService.SignUpAsync(dto.Email, dto.Password, dto.FullName, cancellationToken);
-    var token = jwtService.GenerateToken(user);
-    
-    return Results.Ok(new 
-    { 
-        UserId = user.Id,
-        Email = user.Email,
-        FullName = user.FullName,
-        Token = token
-    });
-});
+app.MapPost("/register",
+    async ([FromServices] IUserService userService, [FromBody] CreateUserModel model,
+        CancellationToken cancellationToken) => await userService.RegisterUserAsync(model, cancellationToken));
 
-app.MapPost("/login", async (IUserService userService, IJwtService jwtService, LoginModel dto, CancellationToken cancellationToken) =>
-{
-    var user = await userService.SignInAsync(dto.Email, dto.Password, cancellationToken);
-    if (user == null)
-        throw new UnauthorizedAccessException("Invalid email or password");
-
-    var token = jwtService.GenerateToken(user);
-    
-    return Results.Ok(new 
-    { 
-        UserId = user.Id,
-        Email = user.Email,
-        FullName = user.FullName,
-        Token = token
-    });
-});
+app.MapPost("/login", async ([FromServices] IUserService userService, LoginModel model, CancellationToken cancellationToken) => await userService.SignInAsync(model, cancellationToken));
 
 app.Run();
