@@ -1,12 +1,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using UserService.Application.Common.Interfaces;
 using UserService.Domain.Entities;
-using UserService.Infrastructure.Entities;
 
 namespace UserService.Infrastructure.Services;
 
@@ -27,7 +25,7 @@ public class JwtService : IJwtService
         _expiryHours = int.TryParse(configuration["JwtSettings:ExpiryHours"], out var hours) ? hours : 1;
     }
 
-    public string GenerateToken(AppIdentityUser user)
+    public string GenerateToken(UserModel user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -35,7 +33,7 @@ public class JwtService : IJwtService
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Name, user.FullName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
@@ -51,13 +49,5 @@ public class JwtService : IJwtService
 
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
-    }
-
-    public string GenerateRefreshToken()
-    {
-        var randomNumber = new byte[64];
-        using var rng = RandomNumberGenerator.Create();
-        rng.GetBytes(randomNumber);
-        return Convert.ToBase64String(randomNumber);
     }
 }

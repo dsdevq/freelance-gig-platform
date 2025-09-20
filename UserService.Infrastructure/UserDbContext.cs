@@ -12,6 +12,6 @@ public class UserDbContext(DbContextOptions<UserDbContext> options)
     {
         base.OnModelCreating(builder);
 
-        builder.Entity<AppIdentityUser>().ToTable("Users");
+        builder.ApplyConfigurationsFromAssembly(typeof(UserDbContext).Assembly);
     }
 }
