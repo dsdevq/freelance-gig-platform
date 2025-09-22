@@ -1,5 +1,6 @@
 using UserService.API.Endpoints;
 using UserService.API.Handlers;
+using UserService.API.OptionsSetup;
 using UserService.Application;
 using UserService.Infrastructure;
 using UserService.Infrastructure.Extensions;
@@ -10,6 +11,10 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

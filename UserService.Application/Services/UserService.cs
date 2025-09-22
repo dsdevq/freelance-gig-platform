@@ -5,14 +5,14 @@ namespace UserService.Application.Services;
 
 public class UserService(
     IIdentityService identityService,
-    IJwtService jwtService
+    IJwtProvider jwtProvider
 ) : IUserService
 {
     public async Task<AuthModel> SignUpAsync(SignUpModel model, CancellationToken cancellationToken)
     {
         var user = await identityService.SignUpAsync(model);
 
-        var jwt = jwtService.GenerateToken(user);
+        var jwt = jwtProvider.GenerateToken(user);
         
         return new AuthModel
         {
@@ -25,7 +25,7 @@ public class UserService(
     {
         var user = await identityService.SignInAsync(model);
         
-        var jwt = jwtService.GenerateToken(user);
+        var jwt = jwtProvider.GenerateToken(user);
         
         return new AuthModel
         {

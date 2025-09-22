@@ -18,16 +18,13 @@ public static class DependencyInjection
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         // JWT service
-        services.AddTransient<IJwtService, JwtService>();
+        services.AddTransient<IJwtProvider, JwtProvider>();
         services.AddScoped<IIdentityService, IdentityService>();
 
         // Database
         services.AddDbContext<UserDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("UserDb")));
         
-
-        // Identity + Authentication
-        var jwtSettings = configuration.GetSection("JwtSettings");
 
         services.AddIdentity<AppIdentityUser, IdentityRole<Guid>>(options =>
             {
@@ -51,22 +48,6 @@ public static class DependencyInjection
             })
             .AddEntityFrameworkStores<UserDbContext>()
             .AddDefaultTokenProviders();
-
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = jwtSettings["Issuer"],
-                    ValidAudience = jwtSettings["Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(
-                        Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]!))
-                };
-            });
 
         services.AddAuthorization();
         services.AddProblemDetails();

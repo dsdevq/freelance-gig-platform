@@ -2,7 +2,7 @@ using UserService.Domain.Entities;
 
 namespace UserService.Application.Common.Interfaces;
 
-public interface IJwtService
+public interface IJwtProvider
 {
     string GenerateToken(UserModel userModel);
 } 

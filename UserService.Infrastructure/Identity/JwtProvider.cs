@@ -2,28 +2,17 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using UserService.Application.Common.Interfaces;
 using UserService.Domain.Entities;
+using UserService.Infrastructure.Identity;
 
 namespace UserService.Infrastructure.Services;
 
-public class JwtService : IJwtService
+public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 {
-    private readonly string _secretKey;
-    private readonly string _issuer;
-    private readonly string _audience;
-    private readonly int _expiryHours;
-
-    public JwtService(IConfiguration configuration)
-    {
-        _secretKey = configuration["JwtSettings:SecretKey"];
-
-        _issuer = configuration["JwtSettings:Issuer"];
-
-        _audience = configuration["JwtSettings:Audience"];
-        _expiryHours = int.TryParse(configuration["JwtSettings:ExpiryHours"], out var hours) ? hours : 1;
-    }
+    private JwtOptions Options => options.Value;
 
     public string GenerateToken(UserModel user)
     {
@@ -36,15 +25,16 @@ public class JwtService : IJwtService
             new Claim(ClaimTypes.Name, user.FullName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
-
+        
         var tokenDescriptor = new SecurityTokenDescriptor
         {
+            
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddHours(_expiryHours),
-            Issuer = _issuer,
-            Audience = _audience,
+            Expires = DateTime.UtcNow.AddHours(Convert.ToDouble(Options.ExpiryHours)),
+            Issuer = Options.Issuer,
+            Audience = Options.Audience,
             SigningCredentials = new SigningCredentials(
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey)), SecurityAlgorithms.HmacSha256)
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Options.SecretKey)), SecurityAlgorithms.HmacSha256)
         };
 
         var token = tokenHandler.CreateToken(tokenDescriptor);
