@@ -1,21 +1,21 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using UserService.Application.Interfaces;
-using UserService.Infrastructure.Data;
-using UserService.Infrastructure.Entities;
+using UserService.API.Endpoints;
+using UserService.API.Handlers;
+using UserService.API.OptionsSetup;
+using UserService.Application;
+using UserService.Infrastructure;
+using UserService.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<UserDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddIdentity<AppIdentityUser, IdentityRole<Guid>>()
-    .AddEntityFrameworkStores<UserDbContext>()
-    .AddDefaultTokenProviders();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
-builder.Services.AddScoped<IUserService, UserService.Infrastructure.Services.UserService>();
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
 
-builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -28,7 +28,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseExceptionHandler();
+app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
+
+app.MapAuthEndpoints();
+app.ApplyMigrations();
 
 app.Run();
