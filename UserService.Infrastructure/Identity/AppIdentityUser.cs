@@ -2,7 +2,4 @@
 
 namespace UserService.Infrastructure.Entities;
 
-public class AppIdentityUser: IdentityUser<Guid>
-{
-    public string FullName { get; init; } = string.Empty;
-}
+public class AppIdentityUser : IdentityUser<Guid>;

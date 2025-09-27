@@ -24,9 +24,12 @@ public static class DependencyInjection
         // Database
         services.AddDbContext<UserDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("UserDb")));
-        
 
-        services.AddIdentity<AppIdentityUser, IdentityRole<Guid>>(options =>
+        services.AddScoped<IRoleService, RoleService>();
+        services.AddScoped<IDataSeederService, DataSeederService>();
+
+
+        services.AddIdentity<AppIdentityUser, AppIdentityRole>(options =>
             {
                 // Password settings
                 options.Password.RequireDigit = true;
@@ -47,9 +50,9 @@ public static class DependencyInjection
                 options.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<UserDbContext>()
-            .AddDefaultTokenProviders();
-
-        services.AddAuthorization();
+            .AddDefaultTokenProviders()
+            .AddRoles<AppIdentityRole>();
+        
         services.AddProblemDetails();
     }
 }

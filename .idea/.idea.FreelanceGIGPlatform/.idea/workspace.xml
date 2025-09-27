@@ -16,7 +16,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="" />
+    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.API/Extensions/SwaggerExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IDataSeederService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.Domain/Enums/RoleType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService.Infrastructure/Identity/AppIdentityRole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Constants/AuthRoutes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Constants/AuthRoutes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Constants/UserRoutes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Constants/UserRoutes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Models/SignUpModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Models/SignUpModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Domain/Entities/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Domain/Entities/UserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Configurations/AppIdentityUserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Configurations/AppIdentityUserConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Extensions/MigrationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Extensions/MigrationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Identity/AppIdentityUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Identity/AppIdentityUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/20250920183017_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/20250920183017_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/UserDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/UserDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/UserDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Data/UserDbContext.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +54,11 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -34,6 +67,31 @@
     &quot;assignee&quot;: &quot;dsdevq&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1758960072" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="user-service" />
+                    <option name="lastUsedInstant" value="1758960071" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/dsdevq/freelance-gig-platform.git&quot;,
@@ -42,15 +100,25 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18224974a54149c89edb118f3494cde537938/b5/347a17b7/HttpStatusCode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8410770f865b4c6b9f5afa6be83c793b10310/2e/0e1bed0b/IConfigureOptions`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/853fe34f29b64848bf7bfa994402dcf1c910/ef/ee4a6e99/IConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dd038ea9e11c410ba2cc20723c0c0fc818938/f7/b856e8b0/ClaimTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e18f1d97967e970341d12fd563b58dff3f381d27c48fbcdbdb19e08b89c9/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f2b1d92f1ffcf2dabd664473f8c9dafa6039595ac228ce4b75a0f1619c5991/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b77eb95a5c127467d81a024e610c2498b68e2e375d1b36a2076e41f9166a4/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/480f25295416cbf2f0d0808458cf771355daae5693d97757c2129ca349da76/SwaggerGenServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53b0d531c06faf86bf2ae111a9a2dbce4c52a9153feb9966ade60289c71bf52/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/595e4f2361fd31cb66c7e9303f46cf8f2fe77d96eea9d0e42c17cae783aa74/ServiceCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a7665f11f8f566fd943a8a9578dbd7f7c51e7f1d81f627050e9532d254a7a/ProblemDetailsServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e25cce28490c87faaf15522967e96692c1829b521f6b7a4fc8bde524eec/IdentityRole.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/97e85c66d22afd51ddac748e121b314e1b7a29b7cd79230a0eb3ad518fe/PoolingAsyncValueTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9eaf4b91d3dbcc674c69b263a1551d2451e1551419f55134586d98f0b4f2fb/TokenOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a63224c3af1f6718f95ae1ed5b4ee895a78fa5f9e3e27ea3f55efbbac2829/RelationalDatabaseFacadeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aa77d914d3d265ba37bfefeefc5d816e41f693f41643370d9a17bd3c14af/NpgsqlConnector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/afc76b3b88246ff664a45163f44dcef02f2b2a6aa36c729eab3fd3eae81d1/SecurityAlgorithms.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0421cc8c6dc7975ab3777104fcc8312d4398ae8c8b337c79f76ef3ca31e97d9/IdentityBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4f8b29071cfcf73e927671b936ba53110f1b613a1cc9bef4fc4f07dd0fbe9/Exception.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b741f17422844062bda644589ab84b32337fefcb677bc51957a62c3df8ad4d/AuthorizationAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c794baab3518d05f8546334d672798d62c10be97c2de99a62b39b885a637/TaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,6 +126,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7b38c7b68e42a73acef29a6dc1216d8ab2873c6617f3688a729528bff736/SignInManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f5f29f8ad09a2791dd1b4377273475352366e26dff81e2144329cf5411ba16cd/AuthAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f8ac19d881e6171f373968cb347690b5b8557fa651dec723703ea0941242617c/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Constants/AuthRoutes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.Domain/Class1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -78,26 +157,26 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.UserService.API: https.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#1 on user-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.UserService.API: https.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.UserService.API: https">
     <configuration name="UserService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/UserService/UserService.csproj" />

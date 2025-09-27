@@ -1,8 +1,12 @@
-﻿namespace UserService.Domain.Entities;
+﻿using UserService.Domain.Constants;
+using UserService.Domain.Enums;
 
-public class UserModel(string email, string fullName)
+namespace UserService.Domain.Entities;
+
+public class UserModel(string email, string name, RoleType roles)
 {
-    public Guid Id { get; init; }
+    public Guid Id { get; }
     public string Email { get; private set; } = email;
-    public string FullName { get;init; } = fullName;
+    public string Name { get; private set; } = name;
+    public RoleType Role { get; private set; } = roles;
 }

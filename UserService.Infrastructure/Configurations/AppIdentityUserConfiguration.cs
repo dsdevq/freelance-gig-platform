@@ -10,7 +10,6 @@ public class AppIdentityUserConfiguration : IEntityTypeConfiguration<AppIdentity
     {
         builder.ToTable("Users");
 
-        // Example: property rules
         builder.Property(u => u.Email)
             .HasMaxLength(255)
             .IsRequired();

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Claims;
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -17,11 +18,13 @@ public class JwtBearerOptionsSetup(IOptions<JwtOptions> jwtOptions): IConfigureO
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
+            RoleClaimType = ClaimTypes.Role,
+            NameClaimType = ClaimTypes.Name,
             ValidateIssuerSigningKey = true,
             ValidIssuer = JwtOptions.Issuer,
             ValidAudience = JwtOptions.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(JwtOptions.SecretKey ))
+                Encoding.UTF8.GetBytes(JwtOptions.SecretKey))
         };
     }
 }
