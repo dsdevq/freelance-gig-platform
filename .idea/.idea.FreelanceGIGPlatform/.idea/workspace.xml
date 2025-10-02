@@ -19,8 +19,7 @@
     <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtOptionsSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtOptionsSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +91,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4d942ca0f0d36dbcda20438e1a697bd3d73da53c804feb7f5040898e3e5e591/JwtBearerOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53b0d531c06faf86bf2ae111a9a2dbce4c52a9153feb9966ade60289c71bf52/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/595e4f2361fd31cb66c7e9303f46cf8f2fe77d96eea9d0e42c17cae783aa74/ServiceCollection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6313090892cd0462a464ac8c943e38456e5f38bbcce656ca65fc4345456d1/PolicyServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6313090892cd0462a464ac8c943e38456e5f38bbcce656ca65fc4345456d1/PolicyServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79b4b5d07e8c5ac3de172b75667c6bded8e1fa6f42f36d8f6dc2f9e3d568/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8633acf8c9b373d24cdf54c3df066f41615c484fc7cca8378d855cfca2422/AuthorizationEndpointConventionBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8875f11716b7d43b1a1411c85286f63fbc8b2d8a012a3a7cb34e28423af34/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,6 +106,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0421cc8c6dc7975ab3777104fcc8312d4398ae8c8b337c79f76ef3ca31e97d9/IdentityBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4f8b29071cfcf73e927671b936ba53110f1b613a1cc9bef4fc4f07dd0fbe9/Exception.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b741f17422844062bda644589ab84b32337fefcb677bc51957a62c3df8ad4d/AuthorizationAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8d1f3ad46f7a7772f143b1593c1756dd5646a5a5ae3ab7e85b8a8a5750f3c6/AuthenticationOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bc6dc2dce1f82b7126325344d5119c81c118e211d0c15c3e4d6e3d2fed67281e/AuthorizationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c794baab3518d05f8546334d672798d62c10be97c2de99a62b39b885a637/TaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0165cb640e16fb3b8fe6932c042fc2917cd7f2770ff123cf7b9d11b5bfc6/Task.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7b38c7b68e42a73acef29a6dc1216d8ab2873c6617f3688a729528bff736/SignInManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -113,17 +116,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f8ac19d881e6171f373968cb347690b5b8557fa651dec723703ea0941242617c/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Constants/AuthRoutes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.Domain/Class1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.Infrastructure/Identity/JwtProvider.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -144,26 +136,26 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.UserService.API: https.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;user-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.UserService.API: https.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "user-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.UserService.API: https">
     <configuration name="UserService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/UserService/UserService.csproj" />
@@ -337,6 +329,9 @@
       <workItem from="1758049641628" duration="6138000" />
       <workItem from="1758283022654" duration="1937000" />
       <workItem from="1758378375035" duration="11107000" />
+      <workItem from="1759051832476" duration="1737000" />
+      <workItem from="1759216930147" duration="1492000" />
+      <workItem from="1759423843050" duration="2246000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit / base UserService implementation">
       <option name="closed" value="true" />
@@ -394,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758981502954</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="auth improvements">
+      <option name="closed" value="true" />
+      <created>1759051865275</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759051865275</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +425,26 @@
     <MESSAGE value="rename model" />
     <MESSAGE value="make migration" />
     <MESSAGE value="implement roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement roles" />
+    <MESSAGE value="auth improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth improvements" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.API/Program.cs</url>
+          <line>64</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.API\Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="1957" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1993" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
