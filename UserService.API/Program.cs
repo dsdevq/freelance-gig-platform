@@ -1,7 +1,5 @@
 using System.Security.Claims;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using UserService.API.Endpoints;
 using UserService.API.Extensions;
 using UserService.API.Handlers;
@@ -9,7 +7,6 @@ using UserService.API.OptionsSetup;
 using UserService.Application;
 using UserService.Infrastructure;
 using UserService.Infrastructure.Extensions;
-using UserService.Infrastructure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +21,10 @@ builder.Services.AddAuthentication(x =>
         x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
     .AddJwtBearer();
+builder.Services.AddAuthorization();
 
 builder.Services.ConfigureOptions<JwtOptionsSetup>();
 builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
-
-
-builder.Services.AddAuthorization();
 
 builder.Services.AddSwagger(); // <- your extension
 
@@ -56,6 +51,6 @@ app.MapGet("me", (ClaimsPrincipal claimsPrincipal) =>
 }).RequireAuthorization();
 
 // Database
-app.ApplyMigrations();
+await app.ApplyMigrations();
 
 app.Run();

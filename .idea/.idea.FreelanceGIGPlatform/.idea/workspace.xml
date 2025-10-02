@@ -16,11 +16,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="working scenario of authentication and authorization">
+    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="fix with naming options">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +82,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/853fe34f29b64848bf7bfa994402dcf1c910/ef/ee4a6e99/IConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dd038ea9e11c410ba2cc20723c0c0fc818938/f7/b856e8b0/ClaimTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17194ebcd5c9ec91b768ec9b65ee2651fd54ab25fd22b3f328740d87fd188ee/AuthenticationServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e18f1d97967e970341d12fd563b58dff3f381d27c48fbcdbdb19e08b89c9/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23d24839d9b96d651f3e31225eeec7416b9ec2ede234e6d0f28da4d0f8d/JwtBearerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2ae5a0322dbe6ebe61e4a9bd573e376bb7c713e068b330203771a988bdda6b/WebApplicationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
@@ -98,6 +99,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8875f11716b7d43b1a1411c85286f63fbc8b2d8a012a3a7cb34e28423af34/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a7665f11f8f566fd943a8a9578dbd7f7c51e7f1d81f627050e9532d254a7a/ProblemDetailsServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e25cce28490c87faaf15522967e96692c1829b521f6b7a4fc8bde524eec/IdentityRole.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9147127ea87c94de7bdcfa6abd3a8d1be8ab591436a45dc11dea6b9fc52d7b6/OptionsServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/97e85c66d22afd51ddac748e121b314e1b7a29b7cd79230a0eb3ad518fe/PoolingAsyncValueTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9eaf4b91d3dbcc674c69b263a1551d2451e1551419f55134586d98f0b4f2fb/TokenOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a63224c3af1f6718f95ae1ed5b4ee895a78fa5f9e3e27ea3f55efbbac2829/RelationalDatabaseFacadeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -116,6 +118,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f8ac19d881e6171f373968cb347690b5b8557fa651dec723703ea0941242617c/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -331,7 +334,7 @@
       <workItem from="1758378375035" duration="11107000" />
       <workItem from="1759051832476" duration="1737000" />
       <workItem from="1759216930147" duration="1492000" />
-      <workItem from="1759423843050" duration="3254000" />
+      <workItem from="1759423843050" duration="4697000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit / base UserService implementation">
       <option name="closed" value="true" />
@@ -405,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759426384580</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix with naming options">
+      <option name="closed" value="true" />
+      <created>1759427580608</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1759427580608</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +446,8 @@
     <MESSAGE value="implement roles" />
     <MESSAGE value="auth improvements" />
     <MESSAGE value="working scenario of authentication and authorization" />
-    <option name="LAST_COMMIT_MESSAGE" value="working scenario of authentication and authorization" />
+    <MESSAGE value="fix with naming options" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix with naming options" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -543,19 +555,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs</url>
-          <line>9</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.API\OptionsSetup\JwtBearerOptionsSetup.cs" containingFunctionPresentation="Constructor 'JwtBearerOptionsSetup'">
-            <startOffsets>
-              <option value="274" />
-            </startOffsets>
-            <endOffsets>
-              <option value="328" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
