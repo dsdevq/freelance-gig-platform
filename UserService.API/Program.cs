@@ -18,30 +18,16 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
-builder.Services.ConfigureOptions<JwtOptionsSetup>();
-builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
-
 builder.Services.AddAuthentication(x =>
     {
         x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
-    .AddJwtBearer(x =>
-    {
-        x.TokenValidationParameters = new()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            RoleClaimType = ClaimTypes.Role,
-            NameClaimType = ClaimTypes.Name,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-            ValidAudience = builder.Configuration["JwtSettings:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]))
-        };
-    });
+    .AddJwtBearer();
+
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+
 
 builder.Services.AddAuthorization();
 
@@ -52,9 +38,13 @@ var app = builder.Build();
 // Middleware
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwaggerWithUI(); // <- your extension
+    app.UseSwaggerWithUI();
 }
 
+app.UseHttpsRedirection();
+app.UseExceptionHandler();
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Endpoints
 app.MapAuthEndpoints();
@@ -63,13 +53,7 @@ app.MapUserEndpoints();
 app.MapGet("me", (ClaimsPrincipal claimsPrincipal) =>
 {
     return Results.Ok("Result it okay");
-    // return Results.Ok(claimsPrincipal.Claims.ToDictionary((c) => c.Type, (c) => c.Value));
 }).RequireAuthorization();
-
-app.UseHttpsRedirection();
-app.UseExceptionHandler();
-app.UseAuthentication();
-app.UseAuthorization();
 
 // Database
 app.ApplyMigrations();

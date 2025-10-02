@@ -16,11 +16,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="">
+    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="working scenario of authentication and authorization">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +138,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.UserService.API: https.executor": "Debug",
+    ".NET Launch Settings Profile.UserService.API: https.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "user-service",
@@ -331,7 +331,7 @@
       <workItem from="1758378375035" duration="11107000" />
       <workItem from="1759051832476" duration="1737000" />
       <workItem from="1759216930147" duration="1492000" />
-      <workItem from="1759423843050" duration="2246000" />
+      <workItem from="1759423843050" duration="3254000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit / base UserService implementation">
       <option name="closed" value="true" />
@@ -397,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759051865275</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="working scenario of authentication and authorization">
+      <option name="closed" value="true" />
+      <created>1759426384580</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1759426384580</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,23 +434,128 @@
     <MESSAGE value="make migration" />
     <MESSAGE value="implement roles" />
     <MESSAGE value="auth improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth improvements" />
+    <MESSAGE value="working scenario of authentication and authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="working scenario of authentication and authorization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.API/Program.cs</url>
-          <line>64</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.API\Program.cs" containingFunctionPresentation="">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>4</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'SecretKey'">
             <startOffsets>
-              <option value="1957" />
+              <option value="104" />
             </startOffsets>
             <endOffsets>
-              <option value="1993" />
+              <option value="108" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>5</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Issuer'">
+            <startOffsets>
+              <option value="143" />
+            </startOffsets>
+            <endOffsets>
+              <option value="147" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>6</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Audience'">
+            <startOffsets>
+              <option value="184" />
+            </startOffsets>
+            <endOffsets>
+              <option value="188" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>7</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'ExpiryHours'">
+            <startOffsets>
+              <option value="225" />
+            </startOffsets>
+            <endOffsets>
+              <option value="229" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>6</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Audience'">
+            <startOffsets>
+              <option value="189" />
+            </startOffsets>
+            <endOffsets>
+              <option value="193" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>7</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'ExpiryHours'">
+            <startOffsets>
+              <option value="230" />
+            </startOffsets>
+            <endOffsets>
+              <option value="234" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>5</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Issuer'">
+            <startOffsets>
+              <option value="148" />
+            </startOffsets>
+            <endOffsets>
+              <option value="152" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
+          <line>4</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'SecretKey'">
+            <startOffsets>
+              <option value="109" />
+            </startOffsets>
+            <endOffsets>
+              <option value="113" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs</url>
+          <line>9</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.API\OptionsSetup\JwtBearerOptionsSetup.cs" containingFunctionPresentation="Constructor 'JwtBearerOptionsSetup'">
+            <startOffsets>
+              <option value="274" />
+            </startOffsets>
+            <endOffsets>
+              <option value="328" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
