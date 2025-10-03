@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using UserService.Application.Common.Interfaces;
 using UserService.Infrastructure.Entities;
 using UserService.Infrastructure.Identity;
+using UserService.Infrastructure.Repositories;
 using UserService.Infrastructure.Services;
 
 namespace UserService.Infrastructure;
@@ -24,6 +25,9 @@ public static class DependencyInjection
         // Database
         services.AddDbContext<UserDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("UserDb")));
+
+        // Repositories
+        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
         services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<IDataSeederService, DataSeederService>();

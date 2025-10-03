@@ -37,5 +37,14 @@ public static class AuthEndpoints
                 var result = await userService.SignInAsync(model, cancellationToken);
                 return Results.Ok(result);
             });
+
+        app.MapPost(AuthRoutes.Refresh,
+            async ([FromServices] IUserService userService,
+                [FromBody] RefreshTokenModel model,
+                CancellationToken cancellationToken) =>
+            {
+                var result = await userService.RefreshAsync(model, cancellationToken);
+                return Results.Ok(result);
+            });
     }
 }

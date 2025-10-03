@@ -17,9 +17,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Constants/AuthRoutes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Constants/AuthRoutes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IJwtProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IJwtProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Common/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Models/AuthModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Models/AuthModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Application/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Application/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Domain/Entities/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Domain/Entities/UserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Data/UserDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Data/UserDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/UserDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.Infrastructure/Migrations/UserDbContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,52 +86,12 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18224974a54149c89edb118f3494cde537938/b5/347a17b7/HttpStatusCode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4f83ae1eff76442095465ed9eb42350acd28/f3/dfafa0e2/JwtBearerDefaults.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8410770f865b4c6b9f5afa6be83c793b10310/2e/0e1bed0b/IConfigureOptions`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/853fe34f29b64848bf7bfa994402dcf1c910/ef/ee4a6e99/IConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dd038ea9e11c410ba2cc20723c0c0fc818938/f7/b856e8b0/ClaimTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17194ebcd5c9ec91b768ec9b65ee2651fd54ab25fd22b3f328740d87fd188ee/AuthenticationServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e18f1d97967e970341d12fd563b58dff3f381d27c48fbcdbdb19e08b89c9/TokenValidationParameters.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23d24839d9b96d651f3e31225eeec7416b9ec2ede234e6d0f28da4d0f8d/JwtBearerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2ae5a0322dbe6ebe61e4a9bd573e376bb7c713e068b330203771a988bdda6b/WebApplicationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2f2b1d92f1ffcf2dabd664473f8c9dafa6039595ac228ce4b75a0f1619c5991/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b77eb95a5c127467d81a024e610c2498b68e2e375d1b36a2076e41f9166a4/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/480f25295416cbf2f0d0808458cf771355daae5693d97757c2129ca349da76/SwaggerGenServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4d942ca0f0d36dbcda20438e1a697bd3d73da53c804feb7f5040898e3e5e591/JwtBearerOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53b0d531c06faf86bf2ae111a9a2dbce4c52a9153feb9966ade60289c71bf52/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/595e4f2361fd31cb66c7e9303f46cf8f2fe77d96eea9d0e42c17cae783aa74/ServiceCollection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6313090892cd0462a464ac8c943e38456e5f38bbcce656ca65fc4345456d1/PolicyServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79b4b5d07e8c5ac3de172b75667c6bded8e1fa6f42f36d8f6dc2f9e3d568/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/82cad5e727ee37bb10dddba7b4e5e8ef88258c593a7d7229e518c6d4428bc171/Options.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8633acf8c9b373d24cdf54c3df066f41615c484fc7cca8378d855cfca2422/AuthorizationEndpointConventionBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8875f11716b7d43b1a1411c85286f63fbc8b2d8a012a3a7cb34e28423af34/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a7665f11f8f566fd943a8a9578dbd7f7c51e7f1d81f627050e9532d254a7a/ProblemDetailsServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e25cce28490c87faaf15522967e96692c1829b521f6b7a4fc8bde524eec/IdentityRole.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9147127ea87c94de7bdcfa6abd3a8d1be8ab591436a45dc11dea6b9fc52d7b6/OptionsServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/97e85c66d22afd51ddac748e121b314e1b7a29b7cd79230a0eb3ad518fe/PoolingAsyncValueTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9eaf4b91d3dbcc674c69b263a1551d2451e1551419f55134586d98f0b4f2fb/TokenOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a63224c3af1f6718f95ae1ed5b4ee895a78fa5f9e3e27ea3f55efbbac2829/RelationalDatabaseFacadeExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aa77d914d3d265ba37bfefeefc5d816e41f693f41643370d9a17bd3c14af/NpgsqlConnector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/afc76b3b88246ff664a45163f44dcef02f2b2a6aa36c729eab3fd3eae81d1/SecurityAlgorithms.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0421cc8c6dc7975ab3777104fcc8312d4398ae8c8b337c79f76ef3ca31e97d9/IdentityBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4f8b29071cfcf73e927671b936ba53110f1b613a1cc9bef4fc4f07dd0fbe9/Exception.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b741f17422844062bda644589ab84b32337fefcb677bc51957a62c3df8ad4d/AuthorizationAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8d1f3ad46f7a7772f143b1593c1756dd5646a5a5ae3ab7e85b8a8a5750f3c6/AuthenticationOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bc6dc2dce1f82b7126325344d5119c81c118e211d0c15c3e4d6e3d2fed67281e/AuthorizationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c794baab3518d05f8546334d672798d62c10be97c2de99a62b39b885a637/TaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0165cb640e16fb3b8fe6932c042fc2917cd7f2770ff123cf7b9d11b5bfc6/Task.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7b38c7b68e42a73acef29a6dc1216d8ab2873c6617f3688a729528bff736/SignInManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f5f29f8ad09a2791dd1b4377273475352366e26dff81e2144329cf5411ba16cd/AuthAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f8ac19d881e6171f373968cb347690b5b8557fa651dec723703ea0941242617c/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/467744c650382796949f32cdbcf6c5be3fee2d65e966a6bcc1349832a0106c/ObjectDisposedException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5cde391207de75962d7bacb899ca2bd3985c86911b152d185b58999a422bf0/Type.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6598e31e3a41d2d9d18c2a6bc0521ee4cc95f16c080f19f35cee7243de6e/ObjectDisposedThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Endpoints/AuthEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -143,7 +114,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.UserService.API: https.executor": "Run",
+    ".NET Launch Settings Profile.UserService.API: https.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -346,7 +317,7 @@
       <workItem from="1759051832476" duration="1737000" />
       <workItem from="1759216930147" duration="1492000" />
       <workItem from="1759423843050" duration="5791000" />
-      <workItem from="1759520871957" duration="301000" />
+      <workItem from="1759520871957" duration="4084000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit / base UserService implementation">
       <option name="closed" value="true" />
@@ -436,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759429213933</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="remove boilerplate">
+      <option name="closed" value="true" />
+      <created>1759521348863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1759521348863</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,114 +447,76 @@
     <MESSAGE value="working scenario of authentication and authorization" />
     <MESSAGE value="fix with naming options" />
     <MESSAGE value="fix with named configure options" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix with named configure options" />
+    <MESSAGE value="remove boilerplate" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove boilerplate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>4</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'SecretKey'">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs</url>
+          <line>47</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\IdentityService.cs" containingFunctionPresentation="Method 'SignUpAsync'">
             <startOffsets>
-              <option value="104" />
+              <option value="1706" />
             </startOffsets>
             <endOffsets>
-              <option value="108" />
+              <option value="1775" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>5</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Issuer'">
+          <url>file://$PROJECT_DIR$/UserService.API/Endpoints/AuthEndpoints.cs</url>
+          <line>45</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.API\Endpoints\AuthEndpoints.cs" containingFunctionPresentation="Lambda expression inside Method 'MapAuthEndpoints'">
             <startOffsets>
-              <option value="143" />
+              <option value="1758" />
             </startOffsets>
             <endOffsets>
-              <option value="147" />
+              <option value="1828" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>6</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Audience'">
+          <url>file://$PROJECT_DIR$/UserService.Application/Services/UserService.cs</url>
+          <line>78</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Application\Services\UserService.cs" containingFunctionPresentation="Method 'RefreshAsync'">
             <startOffsets>
-              <option value="184" />
+              <option value="2522" />
             </startOffsets>
             <endOffsets>
-              <option value="188" />
+              <option value="2623" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>7</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'ExpiryHours'">
+          <url>file://$PROJECT_DIR$/UserService.Application/Services/UserService.cs</url>
+          <line>46</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Application\Services\UserService.cs" containingFunctionPresentation="Method 'SignInAsync'">
             <startOffsets>
-              <option value="225" />
+              <option value="1454" />
             </startOffsets>
             <endOffsets>
-              <option value="229" />
+              <option value="1705" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>6</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Audience'">
+          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/IdentityService.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\IdentityService.cs" containingFunctionPresentation="Method 'SignInAsync'">
             <startOffsets>
-              <option value="189" />
+              <option value="1277" />
             </startOffsets>
             <endOffsets>
-              <option value="193" />
+              <option value="1383" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>7</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'ExpiryHours'">
-            <startOffsets>
-              <option value="230" />
-            </startOffsets>
-            <endOffsets>
-              <option value="234" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>5</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'Issuer'">
-            <startOffsets>
-              <option value="148" />
-            </startOffsets>
-            <endOffsets>
-              <option value="152" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserService.Infrastructure/Identity/JwtOptions.cs</url>
-          <line>4</line>
-          <properties documentPath="C:\Users\denys\RiderProjects\FreelanceGIGPlatform\UserService.Infrastructure\Identity\JwtOptions.cs" containingFunctionPresentation="Property 'SecretKey'">
-            <startOffsets>
-              <option value="109" />
-            </startOffsets>
-            <endOffsets>
-              <option value="113" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
           <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />

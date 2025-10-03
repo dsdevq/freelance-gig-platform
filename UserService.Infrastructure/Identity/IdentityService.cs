@@ -30,7 +30,10 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
         
         await transaction.CommitAsync();
         
-        return new UserModel(user.Email!, user.UserName, parsedRole);
+        return new UserModel(user.Email!, user.UserName, parsedRole)
+        {
+            Id = user.Id
+        };
     }
 
     public async Task<UserModel> SignUpAsync(SignUpModel model, RoleType roleName)
@@ -55,6 +58,9 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
         
         await transaction.CommitAsync();
         
-        return new UserModel(user.Email, user.UserName, parsedRole);
+        return new UserModel(user.Email, user.UserName, parsedRole)
+        {
+            Id = user.Id
+        };
     }
 }
