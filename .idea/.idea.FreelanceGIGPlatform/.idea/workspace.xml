@@ -16,11 +16,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="fix with naming options">
+    <list default="true" id="36f10b36-18df-44ba-8324-a9fead0add13" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FreelanceGIGPlatform/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/FreelanceGIGPlatform.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.API/Endpoints/UserEndpoints.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +94,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6313090892cd0462a464ac8c943e38456e5f38bbcce656ca65fc4345456d1/PolicyServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79b4b5d07e8c5ac3de172b75667c6bded8e1fa6f42f36d8f6dc2f9e3d568/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/82cad5e727ee37bb10dddba7b4e5e8ef88258c593a7d7229e518c6d4428bc171/Options.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8633acf8c9b373d24cdf54c3df066f41615c484fc7cca8378d855cfca2422/AuthorizationEndpointConventionBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8875f11716b7d43b1a1411c85286f63fbc8b2d8a012a3a7cb34e28423af34/AuthorizeAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a7665f11f8f566fd943a8a9578dbd7f7c51e7f1d81f627050e9532d254a7a/ProblemDetailsServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -119,6 +119,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/OptionsSetup/JwtBearerOptionsSetup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/denys/RiderProjects/FreelanceGIGPlatform/UserService.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -129,7 +131,7 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="32nHuTfjyc5crkedpkNXeZzehmH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -143,6 +145,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.UserService.API: https.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "user-service",
     "node.js.detected.package.eslint": "true",
@@ -171,6 +174,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -186,6 +190,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -201,6 +206,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -216,6 +222,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -231,6 +238,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -246,6 +254,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -261,6 +270,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -276,6 +286,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -334,7 +345,8 @@
       <workItem from="1758378375035" duration="11107000" />
       <workItem from="1759051832476" duration="1737000" />
       <workItem from="1759216930147" duration="1492000" />
-      <workItem from="1759423843050" duration="4697000" />
+      <workItem from="1759423843050" duration="5791000" />
+      <workItem from="1759520871957" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit / base UserService implementation">
       <option name="closed" value="true" />
@@ -416,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759427580608</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix with named configure options">
+      <option name="closed" value="true" />
+      <created>1759429213933</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1759429213933</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +467,8 @@
     <MESSAGE value="auth improvements" />
     <MESSAGE value="working scenario of authentication and authorization" />
     <MESSAGE value="fix with naming options" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix with naming options" />
+    <MESSAGE value="fix with named configure options" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix with named configure options" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -556,6 +577,18 @@
           </properties>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="13" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="14" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

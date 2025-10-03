@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using UserService.API.Constants;
+﻿using UserService.API.Constants;
 using UserService.Domain.Constants;
 
 namespace UserService.API.Endpoints;
@@ -13,11 +11,11 @@ public static class UserEndpoints
             async () =>
             {
                 return Results.Ok("This is a client me");
-            }).RequireAuthorization("client-policy");
+            }).RequireAuthorization(p => p.RequireRole(Roles.Client));
         
         app.MapGet(UserRoutes.FreelancerMe, () =>
     {
-            return Results.Ok();
+            return Results.Ok("thiss is freelancer me");
         }).RequireAuthorization(policy => policy.RequireRole(Roles.Freelancer));
 
     

@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using UserService.API.Endpoints;
 using UserService.API.Extensions;
@@ -10,7 +9,6 @@ using UserService.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Services
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
@@ -26,7 +24,7 @@ builder.Services.AddAuthorization();
 builder.Services.ConfigureOptions<JwtOptionsSetup>();
 builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
 
-builder.Services.AddSwagger(); // <- your extension
+builder.Services.AddSwagger(); 
 
 var app = builder.Build();
 
@@ -44,11 +42,6 @@ app.UseAuthorization();
 // Endpoints
 app.MapAuthEndpoints();
 app.MapUserEndpoints();
-
-app.MapGet("me", (ClaimsPrincipal claimsPrincipal) =>
-{
-    return Results.Ok("Result it okay");
-}).RequireAuthorization();
 
 // Database
 await app.ApplyMigrations();
