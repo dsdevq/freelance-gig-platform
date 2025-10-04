@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  userservice:
+    build:
+      context: ./UserService
+      dockerfile: UserService.API/Dockerfile
+    container_name: userservice
+    ports:
+      - "5224:8080"
+      - "7058:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__DefaultConnection=Host=userservice_db;Port=5432;Database=userservice_db;Username=userservice;Password=userservice_dev_password
+    depends_on:
+      userservice_db:
+        condition: service_healthy
+    networks:
+      - freelance-network
+    restart: unless-stopped
+
+  userservice_db:
+    image: postgres:16-alpine
+    container_name: userservice_db
+    environment:
+      - POSTGRES_USER=userservice
+      - POSTGRES_PASSWORD=userservice_dev_password
+      - POSTGRES_DB=userservice_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - userservice_data:/var/lib/postgresql/data
+    networks:
+      - freelance-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U userservice"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  userservice_data:
+
+networks:
+  freelance-network:
+    driver: bridge
+

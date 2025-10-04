@@ -7,6 +7,9 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ["UserService.Domain/UserService.Domain.csproj", "UserService.Domain/"]
+COPY ["UserService.Application/UserService.Application.csproj", "UserService.Application/"]
+COPY ["UserService.Infrastructure/UserService.Infrastructure.csproj", "UserService.Infrastructure/"]
 COPY ["UserService.API/UserService.API.csproj", "UserService.API/"]
 RUN dotnet restore "UserService.API/UserService.API.csproj"
 COPY . .
