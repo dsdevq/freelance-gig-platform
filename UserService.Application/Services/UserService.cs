@@ -66,7 +66,7 @@ public class UserService(
     {
         var refreshToken = await refreshTokenRepository.GetByTokenAsync(model.RefreshToken, cancellationToken);
 
-        if (refreshToken == null || !refreshToken.IsActive)
+        if (refreshToken is not { IsActive: true })
         {
             throw new UnauthorizedAccessException("Invalid or expired refresh token");
         }
