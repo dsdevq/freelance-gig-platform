@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using UserService.Application.Common.Interfaces;
 using UserService.Domain.Constants;
-using UserService.Infrastructure.Identity;
+using UserService.Domain.Entities;
 
-namespace UserService.Infrastructure.Services;
+namespace UserService.Infrastructure.Identity;
 
-public class RoleService(RoleManager<AppIdentityRole> roleManager): IRoleService
+public class RoleService(RoleManager<UserRole> roleManager): IRoleService
 {
     public async Task SeedRolesAsync()
     {
@@ -15,7 +15,7 @@ public class RoleService(RoleManager<AppIdentityRole> roleManager): IRoleService
         {
             if (!await roleManager.RoleExistsAsync(role))
             {
-                await roleManager.CreateAsync(new AppIdentityRole { Name = role });
+                await roleManager.CreateAsync(new UserRole { Name = role });
             }
         }
     }

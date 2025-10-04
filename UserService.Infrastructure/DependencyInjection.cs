@@ -1,12 +1,9 @@
-﻿using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using UserService.Application.Common.Interfaces;
-using UserService.Infrastructure.Entities;
+using UserService.Domain.Entities;
 using UserService.Infrastructure.Identity;
 using UserService.Infrastructure.Persistence;
 using UserService.Infrastructure.Repositories;
@@ -36,7 +33,7 @@ public static class DependencyInjection
         services.AddScoped<IDataSeederService, DataSeederService>();
 
 
-        services.AddIdentity<AppIdentityUser, AppIdentityRole>(options =>
+        services.AddIdentity<User, UserRole>(options =>
             {
                 // Password settings
                 options.Password.RequireDigit = true;
@@ -58,7 +55,7 @@ public static class DependencyInjection
             })
             .AddEntityFrameworkStores<UserDbContext>()
             .AddDefaultTokenProviders()
-            .AddRoles<AppIdentityRole>();
+            .AddRoles<UserRole>();
         
         services.AddProblemDetails();
     }

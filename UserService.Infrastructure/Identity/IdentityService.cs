@@ -4,12 +4,11 @@ using UserService.Application.Models;
 using UserService.Domain.Entities;
 using UserService.Domain.Enums;
 using UserService.Domain.Exceptions;
-using UserService.Infrastructure.Entities;
 
 namespace UserService.Infrastructure.Identity;
 
-public class IdentityService(UserManager<AppIdentityUser> userManager,
-    SignInManager<AppIdentityUser> signInManager,
+public class IdentityService(UserManager<User> userManager,
+    SignInManager<User> signInManager,
     IUnitOfWork unitOfWork
     ) : IIdentityService
 {
@@ -25,10 +24,14 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
         
         var roles = await userManager.GetRolesAsync(user);
         var parsedRole = Enum.Parse<RoleType>(roles[0]);
+        user.Role = parsedRole;
         
-        return new UserModel(user.Email!, user.UserName!, parsedRole)
+        return new UserModel
         {
-            Id = user.Id
+            Role = user.Role,
+            Email = user.Email,
+            UserName = user.UserName,
+            Id =  user.Id
         };
     }
 
@@ -38,10 +41,10 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
 
         try
         {
-            var user = new AppIdentityUser
+            var user = new User
             {
                 Email = model.Email,
-                UserName = model.Name
+                UserName = model.UserName
             };
 
             var createUser = await userManager.CreateAsync(user, model.Password);
@@ -56,11 +59,16 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
 
             var roles = await userManager.GetRolesAsync(user);
             var parsedRole = Enum.Parse<RoleType>(roles.First());
+            user.Role = parsedRole;
 
-            return new UserModel(user.Email, user.UserName, parsedRole)
+            return new UserModel
             {
-                Id = user.Id
+                Role = user.Role,
+                Email = user.Email,
+                UserName = user.UserName,
+                Id =  user.Id
             };
+
         }
         catch
         {
@@ -68,12 +76,12 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
             throw;
         }
     }
-    
+
     public async Task<UserModel> GetUserByIdAsync(Guid userId, CancellationToken cancellationToken)
     {
         var user = await userManager.FindByIdAsync(userId.ToString());
 
-        
+
         if (user is null)
         {
             throw new UnauthorizedAccessException("User not found");
@@ -87,10 +95,14 @@ public class IdentityService(UserManager<AppIdentityUser> userManager,
         }
 
         var parsedRole = Enum.Parse<RoleType>(roles.First());
-
-        return new UserModel(user.Email!, user.UserName!, parsedRole)
+        user.Role = parsedRole;
+        
+        return new UserModel
         {
-            Id = user.Id
+            Role = user.Role,
+            Email = user.Email,
+            UserName = user.UserName,
+            Id =  user.Id
         };
     }
 }

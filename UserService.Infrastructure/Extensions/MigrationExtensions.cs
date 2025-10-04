@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UserService.Application.Common.Interfaces;
+using UserService.Infrastructure.Persistence;
 
 namespace UserService.Infrastructure.Extensions;
 
