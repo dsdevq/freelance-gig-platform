@@ -37,7 +37,7 @@ public class IdentityService(UserManager<User> userManager,
 
     public async Task<UserModel> SignUpAsync(SignUpModel model, RoleType roleName, CancellationToken cancellationToken)
     {
-        var transaction = await unitOfWork.BeginTransactionAsync(cancellationToken);
+        await using var transaction = await unitOfWork.BeginTransactionAsync(cancellationToken);
 
         try
         {

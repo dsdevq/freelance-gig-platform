@@ -63,7 +63,7 @@ public class UserService(
 
     public async Task<AuthModel> RefreshAsync(RefreshTokenModel model, CancellationToken cancellationToken)
     {
-        var transaction = await unitOfWork.BeginTransactionAsync(cancellationToken);
+        await using var transaction = await unitOfWork.BeginTransactionAsync(cancellationToken);
 
         var refreshToken = await refreshTokenRepository.GetByTokenAsync(model.RefreshToken, cancellationToken);
 
