@@ -7,6 +7,6 @@ namespace UserService.Application.Common.Interfaces;
 public interface IIdentityService
 {
     public Task<UserModel> SignInAsync(SignInModel model);
-    public Task<UserModel> SignUpAsync(SignUpModel model, RoleType roleName);
-    public Task<UserModel> GetUserByIdAsync(Guid userId, CancellationToken cancellationToken);
+    public Task<UserModel> SignUpAsync(SignUpModel model, RoleType roleName, CancellationToken cancellationToken);
+    public Task<UserModel> GetUserByIdAsync(Guid userId);
 }

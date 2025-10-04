@@ -35,9 +35,9 @@ public class IdentityService(UserManager<User> userManager,
         };
     }
 
-    public async Task<UserModel> SignUpAsync(SignUpModel model, RoleType roleName)
+    public async Task<UserModel> SignUpAsync(SignUpModel model, RoleType roleName, CancellationToken cancellationToken)
     {
-        await unitOfWork.BeginTransactionAsync();
+        var transaction = await unitOfWork.BeginTransactionAsync(cancellationToken);
 
         try
         {
@@ -55,7 +55,7 @@ public class IdentityService(UserManager<User> userManager,
             if (!assignRoleResult.Succeeded)
                 throw new SignUpFailedException(string.Join("; ", assignRoleResult.Errors.Select(e => e.Description)));
 
-            await unitOfWork.CommitTransactionAsync();
+            await transaction.CommitAsync(cancellationToken);
 
             var roles = await userManager.GetRolesAsync(user);
             var parsedRole = Enum.Parse<RoleType>(roles.First());
@@ -72,12 +72,12 @@ public class IdentityService(UserManager<User> userManager,
         }
         catch
         {
-            await unitOfWork.RollbackTransactionAsync();
+            await transaction.RollbackAsync(cancellationToken);
             throw;
         }
     }
 
-    public async Task<UserModel> GetUserByIdAsync(Guid userId, CancellationToken cancellationToken)
+    public async Task<UserModel> GetUserByIdAsync(Guid userId)
     {
         var user = await userManager.FindByIdAsync(userId.ToString());
 

@@ -14,7 +14,7 @@ public class UserService(
 {
     public async Task<AuthModel> SignUpAsync(SignUpModel model, RoleType role, CancellationToken cancellationToken)
     {
-        var user = await identityService.SignUpAsync(model, role);
+        var user = await identityService.SignUpAsync(model, role, cancellationToken);
 
         var jwt = jwtProvider.GenerateToken(user);
         var refreshToken = jwtProvider.GenerateRefreshToken();
@@ -63,7 +63,7 @@ public class UserService(
 
     public async Task<AuthModel> RefreshAsync(RefreshTokenModel model, CancellationToken cancellationToken)
     {
-        await unitOfWork.BeginTransactionAsync(cancellationToken);
+        var transaction = await unitOfWork.BeginTransactionAsync(cancellationToken);
 
         var refreshToken = await refreshTokenRepository.GetByTokenAsync(model.RefreshToken, cancellationToken);
 
@@ -72,7 +72,7 @@ public class UserService(
 
         refreshToken.RevokedAt = DateTime.UtcNow;
 
-        var userModel = await identityService.GetUserByIdAsync(refreshToken.UserId, cancellationToken);
+        var userModel = await identityService.GetUserByIdAsync(refreshToken.UserId);
 
         var newAccessToken = jwtProvider.GenerateToken(userModel);
         var newRefreshToken = jwtProvider.GenerateRefreshToken();
@@ -87,7 +87,7 @@ public class UserService(
 
         await refreshTokenRepository.AddAsync(newRefreshTokenEntity, cancellationToken);
 
-        await unitOfWork.CommitTransactionAsync(cancellationToken);
+        await transaction.CommitAsync(cancellationToken);
 
         return new AuthModel
         {
