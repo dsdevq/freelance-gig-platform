@@ -17,7 +17,8 @@ public static class JobEndpoints
             return Results.Ok(jobs);
         })
         .WithName("GetAllJobs")
-        .Produces<IEnumerable<JobModel>>();
+        .Produces<IEnumerable<JobModel>>()
+        .RequireAuthorization();
 
         group.MapGet("/{id:guid}", async (Guid id, IJobService jobService, CancellationToken ct) =>
         {
@@ -26,7 +27,8 @@ public static class JobEndpoints
         })
         .WithName("GetJobById")
         .Produces<JobModel>()
-        .Produces(404);
+        .Produces(404)
+        .RequireAuthorization();
 
         group.MapGet("/client/{clientId:guid}", async (Guid clientId, IJobService jobService, CancellationToken ct) =>
         {
@@ -34,7 +36,8 @@ public static class JobEndpoints
             return Results.Ok(jobs);
         })
         .WithName("GetJobsByClientId")
-        .Produces<IEnumerable<JobModel>>();
+        .Produces<IEnumerable<JobModel>>()
+        .RequireAuthorization();
 
         group.MapGet("/freelancer/{freelancerId:guid}", async (Guid freelancerId, IJobService jobService, CancellationToken ct) =>
         {
@@ -42,7 +45,8 @@ public static class JobEndpoints
             return Results.Ok(jobs);
         })
         .WithName("GetJobsByFreelancerId")
-        .Produces<IEnumerable<JobModel>>();
+        .Produces<IEnumerable<JobModel>>()
+        .RequireAuthorization();
 
         group.MapGet("/status/{status}", async (JobStatus status, IJobService jobService, CancellationToken ct) =>
         {
@@ -50,7 +54,8 @@ public static class JobEndpoints
             return Results.Ok(jobs);
         })
         .WithName("GetJobsByStatus")
-        .Produces<IEnumerable<JobModel>>();
+        .Produces<IEnumerable<JobModel>>()
+        .RequireAuthorization();
 
         group.MapPost("/", async ([FromBody] CreateJobModel model, IJobService jobService, CancellationToken ct) =>
         {
@@ -58,7 +63,8 @@ public static class JobEndpoints
             return Results.Created($"/api/jobs/{job.Id}", job);
         })
         .WithName("CreateJob")
-        .Produces<JobModel>(201);
+        .Produces<JobModel>(201)
+        .RequireAuthorization();
 
         group.MapPut("/{id:guid}", async (Guid id, [FromBody] UpdateJobModel model, IJobService jobService, CancellationToken ct) =>
         {
@@ -74,7 +80,8 @@ public static class JobEndpoints
         })
         .WithName("UpdateJob")
         .Produces<JobModel>()
-        .Produces(404);
+        .Produces(404)
+        .RequireAuthorization();
 
         group.MapDelete("/{id:guid}", async (Guid id, IJobService jobService, CancellationToken ct) =>
         {
@@ -83,7 +90,8 @@ public static class JobEndpoints
         })
         .WithName("DeleteJob")
         .Produces(204)
-        .Produces(404);
+        .Produces(404)
+        .RequireAuthorization();
     }
 }
 
