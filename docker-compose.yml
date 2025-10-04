@@ -41,8 +41,49 @@ services:
       retries: 5
     restart: unless-stopped
 
+  jobservice:
+    build:
+      context: ./JobService
+      dockerfile: JobService.API/Dockerfile
+    container_name: jobservice
+    ports:
+      - "5225:8080"
+      - "7059:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__DefaultConnection=Host=jobservice_db;Port=5432;Database=jobservice_db;Username=jobservice;Password=jobservice_dev_password
+    depends_on:
+      jobservice_db:
+        condition: service_healthy
+    networks:
+      - freelance-network
+    restart: unless-stopped
+
+  jobservice_db:
+    image: postgres:16-alpine
+    container_name: jobservice_db
+    environment:
+      - POSTGRES_USER=jobservice
+      - POSTGRES_PASSWORD=jobservice_dev_password
+      - POSTGRES_DB=jobservice_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - jobservice_data:/var/lib/postgresql/data
+    networks:
+      - freelance-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jobservice"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
 volumes:
   userservice_data:
+  jobservice_data:
 
 networks:
   freelance-network:

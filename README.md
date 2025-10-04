@@ -8,6 +8,7 @@ This project follows a microservices architecture where each service is independ
 
 ### Current Microservices
 - **UserService**: User authentication and management
+- **JobService**: Job posting and management
 
 ## 🚀 Running the Application
 
@@ -60,6 +61,7 @@ dotnet watch --project UserService/UserService.API
 | Service | HTTP | HTTPS | Swagger |
 |---------|------|-------|---------|
 | UserService | http://localhost:5224 | https://localhost:7058 | https://localhost:7058/swagger |
+| JobService | http://localhost:5225 | https://localhost:7059 | https://localhost:7059/swagger |
 
 ## 📦 Project Structure
 
@@ -70,6 +72,11 @@ FreelanceGIGPlatform/
 │   ├── UserService.Application/           # Application services and interfaces
 │   ├── UserService.Infrastructure/        # Data access and external services
 │   └── UserService.API/                   # Web API and endpoints
+├── JobService/
+│   ├── JobService.Domain/                 # Domain entities (Job) and business logic
+│   ├── JobService.Application/            # Application services and interfaces
+│   ├── JobService.Infrastructure/         # Data access and external services
+│   └── JobService.API/                    # Web API and endpoints
 ├── docker-compose.yml                     # Docker Compose for all services
 ├── README.md                              # This file
 └── FreelanceGIGPlatform.sln              # Main solution (all projects)
@@ -117,6 +124,7 @@ dotnet sln add YourService/YourService.API/YourService.API.csproj
 
 Each microservice has its own database (database per service pattern):
 - **UserService**: PostgreSQL on port 5432
+- **JobService**: PostgreSQL on port 5433
 
 ## 🛠️ Development Tools
 
