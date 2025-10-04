@@ -1,13 +1,12 @@
-﻿using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using UserService.Application.Common.Interfaces;
-using UserService.Infrastructure.Entities;
+using UserService.Domain.Entities;
 using UserService.Infrastructure.Identity;
+using UserService.Infrastructure.Persistence;
+using UserService.Infrastructure.Repositories;
 using UserService.Infrastructure.Services;
 
 namespace UserService.Infrastructure;
@@ -25,8 +24,16 @@ public static class DependencyInjection
         services.AddDbContext<UserDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("UserDb")));
         
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        services.AddIdentity<AppIdentityUser, IdentityRole<Guid>>(options =>
+        // Repositories
+        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
+        services.AddScoped<IRoleService, RoleService>();
+        services.AddScoped<IDataSeederService, DataSeederService>();
+
+
+        services.AddIdentity<User, UserRole>(options =>
             {
                 // Password settings
                 options.Password.RequireDigit = true;
@@ -47,9 +54,9 @@ public static class DependencyInjection
                 options.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<UserDbContext>()
-            .AddDefaultTokenProviders();
-
-        services.AddAuthorization();
+            .AddDefaultTokenProviders()
+            .AddRoles<UserRole>();
+        
         services.AddProblemDetails();
     }
 }

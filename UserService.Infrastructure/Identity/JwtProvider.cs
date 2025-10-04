@@ -1,14 +1,13 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using UserService.Application.Common.Interfaces;
-using UserService.Domain.Entities;
-using UserService.Infrastructure.Identity;
+using UserService.Application.Models;
 
-namespace UserService.Infrastructure.Services;
+namespace UserService.Infrastructure.Identity;
 
 public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 {
@@ -22,7 +21,8 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Name, user.FullName),
+            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Role, user.Role.ToString()),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
         
@@ -39,5 +39,13 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
+    }
+
+    public string GenerateRefreshToken()
+    {
+        var randomNumber = new byte[64];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomNumber);
+        return Convert.ToBase64String(randomNumber);
     }
 }

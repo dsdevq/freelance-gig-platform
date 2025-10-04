@@ -1,16 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using UserService.Infrastructure.Entities;
+using UserService.Domain.Entities;
 
 namespace UserService.Infrastructure.Configurations;
 
-public class AppIdentityUserConfiguration : IEntityTypeConfiguration<AppIdentityUser>
+public class UserConfiguration : IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<AppIdentityUser> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.ToTable("Users");
 
-        // Example: property rules
         builder.Property(u => u.Email)
             .HasMaxLength(255)
             .IsRequired();
