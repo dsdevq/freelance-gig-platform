@@ -27,18 +27,13 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
 
         response.StatusCode = exception switch
         {
-            ArgumentException or ArgumentNullException => (int)HttpStatusCode.BadRequest,
-            UnauthorizedAccessException => (int)HttpStatusCode.Unauthorized,
-            KeyNotFoundException => (int)HttpStatusCode.NotFound,
-            _ => (int)HttpStatusCode.InternalServerError
+            ArgumentException or ArgumentNullException => StatusCodes.Status400BadRequest,
+            UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
+            KeyNotFoundException => StatusCodes.Status404NotFound,
+            _ => StatusCodes.Status500InternalServerError
         };
 
-        var jsonResponse = JsonSerializer.Serialize(errorResponse, new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        });
-
-        await response.WriteAsync(jsonResponse, cancellationToken);
+        await response.WriteAsJsonAsync(errorResponse, cancellationToken);
         return true;
     }
 } 
