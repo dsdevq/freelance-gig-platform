@@ -68,15 +68,8 @@ public static class JobEndpoints
 
         group.MapPut(JobRoutes.Update, async (Guid id, [FromBody] UpdateJobModel model, IJobService jobService, CancellationToken ct) =>
         {
-            try
-            {
-                var job = await jobService.UpdateJobAsync(id, model, ct);
-                return Results.Ok(job);
-            }
-            catch (InvalidOperationException)
-            {
-                return Results.NotFound();
-            }
+            var job = await jobService.UpdateJobAsync(id, model, ct);
+            return Results.Ok(job);
         })
         .WithName("UpdateJob")
         .Produces<JobModel>()

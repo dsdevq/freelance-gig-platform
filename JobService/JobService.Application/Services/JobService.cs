@@ -41,7 +41,6 @@ public class JobService(IJobRepository jobRepository, IUnitOfWork unitOfWork) : 
     {
         var job = new Job
         {
-            Id = Guid.NewGuid(),
             Title = model.Title,
             Description = model.Description,
             Budget = model.Budget,
