@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JobService.Application\JobService.Application.csproj" />
     <ProjectReference Include="..\JobService.Infrastructure\JobService.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Shared\Shared.WebApi\Shared.WebApi.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using UserService.Application.Common.Interfaces;
+using Microsoft.EntityFrameworkCore.Storage;
+using Shared.Application.Persistence;
 
-namespace UserService.Infrastructure.Persistence;
+namespace Shared.Infrastructure.Persistence;
 
 public class EfCoreTransaction(IDbContextTransaction efTransaction) : ITransaction
 {

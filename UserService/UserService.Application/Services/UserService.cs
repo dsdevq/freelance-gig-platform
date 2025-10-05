@@ -1,4 +1,5 @@
-﻿using UserService.Application.Common.Interfaces;
+﻿using Shared.Application.Persistence;
+using UserService.Application.Common.Interfaces;
 using UserService.Application.Models;
 using UserService.Domain.Entities;
 using UserService.Domain.Enums;

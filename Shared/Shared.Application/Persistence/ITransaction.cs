@@ -1,4 +1,4 @@
-﻿namespace UserService.Application.Common.Interfaces;
+namespace Shared.Application.Persistence;
 
 public interface ITransaction : IAsyncDisposable
 {

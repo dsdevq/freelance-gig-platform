@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Infrastructure.Extensions;
 using UserService.Application.Common.Interfaces;
 using UserService.Domain.Entities;
 using UserService.Infrastructure.Identity;
@@ -24,7 +25,7 @@ public static class DependencyInjection
         services.AddDbContext<UserDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("UserDb")));
         
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddSharedUnitOfWork<UnitOfWork>();
 
         // Repositories
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();

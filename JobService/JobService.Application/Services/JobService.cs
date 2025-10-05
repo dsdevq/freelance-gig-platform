@@ -1,6 +1,7 @@
 using JobService.Application.Common.Interfaces;
 using JobService.Application.Models;
 using JobService.Domain.Entities;
+using Shared.Application.Persistence;
 
 namespace JobService.Application.Services;
 

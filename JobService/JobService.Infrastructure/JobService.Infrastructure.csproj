@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JobService.Domain\JobService.Domain.csproj" />
     <ProjectReference Include="..\JobService.Application\JobService.Application.csproj" />
+    <ProjectReference Include="..\..\Shared\Shared.Infrastructure\Shared.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

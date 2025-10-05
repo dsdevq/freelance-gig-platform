@@ -4,6 +4,7 @@ using JobService.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Infrastructure.Extensions;
 
 namespace JobService.Infrastructure;
 
@@ -15,7 +16,7 @@ public static class DependencyInjection
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
         services.AddScoped<IJobRepository, JobRepository>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddSharedUnitOfWork<UnitOfWork>();
 
         return services;
     }

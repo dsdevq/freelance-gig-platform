@@ -1,36 +1,21 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using JobService.API.Endpoints;
-using JobService.API.Extensions;
-using JobService.API.OptionsSetup;
 using JobService.Application;
 using JobService.Infrastructure;
+using Shared.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddAuthentication(x =>
-    {
-        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer();
-builder.Services.AddAuthorization();
-
-builder.Services.ConfigureOptions<JwtOptionsSetup>();
-builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
-
-builder.Services.AddSwagger();
+builder.Services.AddSharedJwtAuthentication();
+builder.Services.AddSharedSwagger("JobService API", "v1");
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwaggerWithUI();
+    app.UseSharedSwagger("JobService API", "v1");
 }
 
 app.UseHttpsRedirection();

@@ -1,14 +1,18 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace JobService.API.Extensions;
+namespace Shared.WebApi.Extensions;
 
 public static class SwaggerExtensions
 {
-    public static void AddSwagger(this IServiceCollection services)
+    public static IServiceCollection AddSharedSwagger(this IServiceCollection services, string serviceName = "API", string version = "v1")
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
+            c.SwaggerDoc(version, new OpenApiInfo { Title = serviceName, Version = version });
+            
             // Define JWT Bearer scheme
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
@@ -36,12 +40,17 @@ public static class SwaggerExtensions
                 }
             });
         });
+        
+        return services;
     }
 
-    public static IApplicationBuilder UseSwaggerWithUI(this IApplicationBuilder app)
+    public static IApplicationBuilder UseSharedSwagger(this IApplicationBuilder app, string serviceName = "API", string version = "v1")
     {
         app.UseSwagger();
-        app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobService API V1"); });
+        app.UseSwaggerUI(c => 
+        { 
+            c.SwaggerEndpoint($"/swagger/{version}/swagger.json", $"{serviceName} {version.ToUpper()}"); 
+        });
 
         return app;
     }

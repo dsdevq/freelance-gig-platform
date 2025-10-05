@@ -24,6 +24,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\UserService.Infrastructure\UserService.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Shared\Shared.WebApi\Shared.WebApi.csproj" />
     </ItemGroup>
 
 </Project>
