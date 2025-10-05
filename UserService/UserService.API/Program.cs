@@ -1,5 +1,4 @@
 using Shared.WebApi.Extensions;
-using Shared.WebApi.Handlers;
 using UserService.API.Endpoints;
 using UserService.Application;
 using UserService.Infrastructure;
@@ -9,29 +8,26 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
+builder.Services.AddSharedErrorHandling();
 builder.Services.AddSharedJwtAuthentication();
-builder.Services.AddSharedSwagger("UserService API", "v1"); 
+builder.Services.AddSharedSwagger("UserService API", "v1");
 
 var app = builder.Build();
 
-// Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSharedSwagger("UserService API", "v1");
 }
 
 app.UseHttpsRedirection();
-app.UseExceptionHandler();
+app.UseSharedErrorHandling();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Endpoints
 app.MapAuthEndpoints();
 app.MapUserEndpoints();
 
-// Database
 await app.ApplyMigrationsAsync();
 
 app.Run();
