@@ -1,6 +1,6 @@
 using Shared.WebApi.Extensions;
+using Shared.WebApi.Handlers;
 using UserService.API.Endpoints;
-using UserService.API.Handlers;
 using UserService.Application;
 using UserService.Infrastructure;
 using UserService.Infrastructure.Extensions;

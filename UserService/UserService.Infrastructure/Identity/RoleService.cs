@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
+using Shared.Domain.Constants;
 using UserService.Application.Common.Interfaces;
-using UserService.Domain.Constants;
 using UserService.Domain.Entities;
 
 namespace UserService.Infrastructure.Identity;

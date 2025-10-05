@@ -1,6 +1,6 @@
-using UserService.Domain.Enums;
+using Shared.Domain.Enums;
 
-namespace UserService.Domain.Constants;
+namespace Shared.Domain.Constants;
 
 public static class Roles
 {
