@@ -65,21 +65,30 @@ public class JobService(IJobRepository jobRepository, IUnitOfWork unitOfWork) : 
         if (job == null)
             throw new InvalidOperationException($"Job with ID {id} not found");
 
-        if (model.Title != null) job.Title = model.Title;
-        if (model.Description != null) job.Description = model.Description;
-        if (model.Budget.HasValue) job.Budget = model.Budget.Value;
-        if (model.Status.HasValue) job.Status = model.Status.Value;
-        if (model.FreelancerId.HasValue) job.FreelancerId = model.FreelancerId.Value;
-        if (model.Category != null) job.Category = model.Category;
-        if (model.RequiredSkills != null) job.RequiredSkills = model.RequiredSkills;
-        if (model.EstimatedDurationInDays.HasValue) job.EstimatedDurationInDays = model.EstimatedDurationInDays.Value;
+        var jobModel = MapToDomain(model);
 
-        job.UpdatedAt = DateTime.UtcNow;
+        if (model.Status is not null)
+        {
+            jobModel.Status = model.Status.Value;
+        }
+
+        if (model.Budget is not null)
+        {
+            jobModel.Budget = model.Budget.Value;
+        }
+
+        if (model.EstimatedDurationInDays is not null)
+        {
+            jobModel.EstimatedDurationInDays = model.EstimatedDurationInDays.Value;
+        }
+        
+        jobModel.UpdatedAt = DateTime.UtcNow;
 
         if (model.Status == JobStatus.Completed)
-            job.CompletedAt = DateTime.UtcNow;
+            jobModel.CompletedAt = DateTime.UtcNow;
+        
 
-        var updatedJob = await jobRepository.UpdateAsync(job, cancellationToken);
+        var updatedJob = await jobRepository.UpdateAsync(jobModel, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return MapToModel(updatedJob);
@@ -111,6 +120,18 @@ public class JobService(IJobRepository jobRepository, IUnitOfWork unitOfWork) : 
             Category = job.Category,
             RequiredSkills = job.RequiredSkills,
             EstimatedDurationInDays = job.EstimatedDurationInDays
+        };
+    }
+
+    private static Job MapToDomain(UpdateJobModel job)
+    {
+        return new Job
+        {
+            Title = job.Title,
+            Description = job.Description,
+            FreelancerId = job.FreelancerId,
+            Category = job.Category,
+            RequiredSkills = job.RequiredSkills,
         };
     }
 }
