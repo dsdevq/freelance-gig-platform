@@ -12,7 +12,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddPostgresDbContext<JobDbContext>(configuration, "DefaultConnection");
-        services.AddSharedUnitOfWork<UnitOfWork>();
+        services.AddUnitOfWork<UnitOfWork>();
 
         services.AddScoped<IJobRepository, JobRepository>();
 

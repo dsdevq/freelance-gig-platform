@@ -6,7 +6,7 @@ namespace Shared.WebApi.Extensions;
 
 public static class ErrorHandlingExtensions
 {
-    public static IServiceCollection AddSharedErrorHandling(this IServiceCollection services)
+    public static IServiceCollection AddErrorHandling(this IServiceCollection services)
     {
         services.AddExceptionHandler<GlobalExceptionHandler>();
         services.AddProblemDetails();
@@ -14,7 +14,7 @@ public static class ErrorHandlingExtensions
         return services;
     }
 
-    public static IApplicationBuilder UseSharedErrorHandling(this IApplicationBuilder app)
+    public static IApplicationBuilder UseErrorHandling(this IApplicationBuilder app)
     {
         app.UseExceptionHandler();
         

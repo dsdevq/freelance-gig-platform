@@ -105,8 +105,8 @@ Services will be available at:
   - `EfCoreTransaction` - Transaction wrapper
 
 - **Web API Layer:**
-  - `AddSharedJwtAuthentication()` - JWT authentication setup
-  - `AddSharedSwagger()` / `UseSharedSwagger()` - Swagger with JWT support
+  - `AddJwtAuthentication()` - JWT authentication setup
+  - `AddSwagger()` / `UseSwagger()` - Swagger with JWT support
 
 ### Configuration Management
 

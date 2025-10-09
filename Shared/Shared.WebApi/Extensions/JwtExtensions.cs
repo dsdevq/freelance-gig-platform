@@ -11,7 +11,7 @@ namespace Shared.WebApi.Extensions;
 
 public static class JwtExtensions
 {
-    public static IServiceCollection AddSharedJwtAuthentication(this IServiceCollection services)
+    public static IServiceCollection AddJwtAuthentication(this IServiceCollection services)
     {
         services.ConfigureOptions<JwtOptionsSetup>();
         services.ConfigureOptions<JwtBearerOptionsSetup>();

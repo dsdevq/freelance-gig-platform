@@ -9,19 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddSharedErrorHandling();
-builder.Services.AddSharedJwtAuthentication();
-builder.Services.AddSharedSwagger("UserService API", "v1");
+builder.Services.AddErrorHandling();
+builder.Services.AddJwtAuthentication();
+builder.Services.AddSwagger("UserService API", "v1");
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSharedSwagger("UserService API", "v1");
+    app.UseSwagger("UserService API", "v1");
 }
 
 app.UseHttpsRedirection();
-app.UseSharedErrorHandling();
+app.UseErrorHandling();
 app.UseAuthentication();
 app.UseAuthorization();
 

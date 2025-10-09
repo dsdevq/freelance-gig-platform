@@ -17,7 +17,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddPostgresDbContext<UserDbContext>(configuration, "UserDb");
-        services.AddSharedUnitOfWork<UnitOfWork>();
+        services.AddUnitOfWork<UnitOfWork>();
 
         services.AddTransient<IJwtProvider, JwtProvider>();
         services.AddScoped<IIdentityService, IdentityService>();

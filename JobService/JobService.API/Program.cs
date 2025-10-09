@@ -8,19 +8,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddSharedErrorHandling();
-builder.Services.AddSharedJwtAuthentication();
-builder.Services.AddSharedSwagger("JobService API", "v1");
+builder.Services.AddErrorHandling();
+builder.Services.AddJwtAuthentication();
+builder.Services.AddSwagger("JobService API", "v1");
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSharedSwagger("JobService API", "v1");
+    app.UseSwagger("JobService API", "v1");
 }
 
 app.UseHttpsRedirection();
-app.UseSharedErrorHandling();
+app.UseErrorHandling();
 app.UseAuthentication();
 app.UseAuthorization();
 

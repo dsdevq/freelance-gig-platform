@@ -7,7 +7,7 @@ namespace Shared.Infrastructure.Extensions;
 
 public static class PersistenceExtensions
 {
-    public static IServiceCollection AddSharedUnitOfWork<TUnitOfWork>(this IServiceCollection services)
+    public static IServiceCollection AddUnitOfWork<TUnitOfWork>(this IServiceCollection services)
         where TUnitOfWork : class, IUnitOfWork
     {
         services.AddScoped<IUnitOfWork, TUnitOfWork>();

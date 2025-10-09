@@ -6,7 +6,7 @@ namespace Shared.WebApi.Extensions;
 
 public static class SwaggerExtensions
 {
-    public static IServiceCollection AddSharedSwagger(this IServiceCollection services, string serviceName = "API", string version = "v1")
+    public static IServiceCollection AddSwagger(this IServiceCollection services, string serviceName = "API", string version = "v1")
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
@@ -44,7 +44,7 @@ public static class SwaggerExtensions
         return services;
     }
 
-    public static IApplicationBuilder UseSharedSwagger(this IApplicationBuilder app, string serviceName = "API", string version = "v1")
+    public static IApplicationBuilder UseSwagger(this IApplicationBuilder app, string serviceName = "API", string version = "v1")
     {
         app.UseSwagger();
         app.UseSwaggerUI(c => 
