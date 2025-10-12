@@ -44,7 +44,7 @@ public static class SwaggerExtensions
         return services;
     }
 
-    public static IApplicationBuilder UseSwagger(this IApplicationBuilder app, string serviceName = "API", string version = "v1")
+    public static IApplicationBuilder UseSwaggerWithUI(this IApplicationBuilder app, string serviceName = "API", string version = "v1")
     {
         app.UseSwagger();
         app.UseSwaggerUI(c => 

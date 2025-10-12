@@ -17,7 +17,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger("UserService API", "v1");
+    app.UseSwaggerWithUI("UserService API", "v1");
 }
 
 app.UseHttpsRedirection();

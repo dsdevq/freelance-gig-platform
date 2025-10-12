@@ -1,6 +1,7 @@
 using JobService.API.Endpoints;
 using JobService.Application;
 using JobService.Infrastructure;
+using JobService.Infrastructure.Extensions;
 using Shared.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger("JobService API", "v1");
+    app.UseSwaggerWithUI("JobService API", "v1");
 }
 
 app.UseHttpsRedirection();
@@ -25,5 +26,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapJobEndpoints();
+
+await app.ApplyMigrationsAsync();
 
 app.Run();

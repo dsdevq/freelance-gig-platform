@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using JobService.Application.Common.Interfaces;
 using JobService.Application.Models;
 using JobService.Domain.Entities;
@@ -5,93 +7,72 @@ using Shared.Application.Persistence;
 
 namespace JobService.Application.Services;
 
-public class JobService(IJobRepository jobRepository, IUnitOfWork unitOfWork) : IJobService
+public class JobService(
+    IJobRepository jobRepository,
+    IUnitOfWork unitOfWork,
+    IMapper mapper,
+    IValidator<CreateJobModel> createValidator,
+    IValidator<UpdateJobModel> updateValidator
+) : IJobService
 {
     public async Task<JobModel?> GetJobByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         var job = await jobRepository.GetByIdAsync(id, cancellationToken);
-        return job == null ? null : MapToModel(job);
+        return job is null ? null : mapper.Map<JobModel>(job);
     }
 
     public async Task<IEnumerable<JobModel>> GetAllJobsAsync(CancellationToken cancellationToken = default)
     {
         var jobs = await jobRepository.GetAllAsync(cancellationToken);
-        return jobs.Select(MapToModel);
+        return mapper.Map<IEnumerable<JobModel>>(jobs);
     }
 
     public async Task<IEnumerable<JobModel>> GetJobsByClientIdAsync(Guid clientId, CancellationToken cancellationToken = default)
     {
         var jobs = await jobRepository.GetByClientIdAsync(clientId, cancellationToken);
-        return jobs.Select(MapToModel);
+        return mapper.Map<IEnumerable<JobModel>>(jobs);
     }
 
     public async Task<IEnumerable<JobModel>> GetJobsByFreelancerIdAsync(Guid freelancerId, CancellationToken cancellationToken = default)
     {
         var jobs = await jobRepository.GetByFreelancerIdAsync(freelancerId, cancellationToken);
-        return jobs.Select(MapToModel);
+        return mapper.Map<IEnumerable<JobModel>>(jobs);
     }
 
     public async Task<IEnumerable<JobModel>> GetJobsByStatusAsync(JobStatus status, CancellationToken cancellationToken = default)
     {
         var jobs = await jobRepository.GetByStatusAsync(status, cancellationToken);
-        return jobs.Select(MapToModel);
+        return mapper.Map<IEnumerable<JobModel>>(jobs);
     }
 
     public async Task<JobModel> CreateJobAsync(CreateJobModel model, CancellationToken cancellationToken = default)
     {
-        var job = new Job
-        {
-            Title = model.Title,
-            Description = model.Description,
-            Budget = model.Budget,
-            ClientId = model.ClientId,
-            Category = model.Category,
-            RequiredSkills = model.RequiredSkills,
-            EstimatedDurationInDays = model.EstimatedDurationInDays,
-            Status = JobStatus.Draft,
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
-        };
+        await createValidator.ValidateAndThrowAsync(model, cancellationToken);
 
-        var createdJob = await jobRepository.CreateAsync(job, cancellationToken);
+        var job = mapper.Map<Job>(model);
+        await jobRepository.CreateAsync(job, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return MapToModel(createdJob);
+        return mapper.Map<JobModel>(job);
     }
 
     public async Task<JobModel> UpdateJobAsync(Guid id, UpdateJobModel model, CancellationToken cancellationToken = default)
     {
-        var job = await jobRepository.GetByIdAsync(id, cancellationToken);
-        if (job == null)
-            throw new InvalidOperationException($"Job with ID {id} not found");
+        await updateValidator.ValidateAndThrowAsync(model, cancellationToken);
 
-        var jobModel = MapToDomain(model);
+        var job = await jobRepository.GetByIdAsync(id, cancellationToken)
+            ?? throw new InvalidOperationException($"Job with ID {id} not found.");
 
-        if (model.Status is not null)
-        {
-            jobModel.Status = model.Status.Value;
-        }
-
-        if (model.Budget is not null)
-        {
-            jobModel.Budget = model.Budget.Value;
-        }
-
-        if (model.EstimatedDurationInDays is not null)
-        {
-            jobModel.EstimatedDurationInDays = model.EstimatedDurationInDays.Value;
-        }
-        
-        jobModel.UpdatedAt = DateTime.UtcNow;
+        mapper.Map(model, job); // updates only non-null fields
+        job.UpdatedAt = DateTime.UtcNow;
 
         if (model.Status == JobStatus.Completed)
-            jobModel.CompletedAt = DateTime.UtcNow;
-        
+            job.CompletedAt = DateTime.UtcNow;
 
-        var updatedJob = await jobRepository.UpdateAsync(jobModel, cancellationToken);
+        await jobRepository.UpdateAsync(job, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return MapToModel(updatedJob);
+        return mapper.Map<JobModel>(job);
     }
 
     public async Task<bool> DeleteJobAsync(Guid id, CancellationToken cancellationToken = default)
@@ -102,37 +83,4 @@ public class JobService(IJobRepository jobRepository, IUnitOfWork unitOfWork) : 
 
         return result;
     }
-
-    private static JobModel MapToModel(Job job)
-    {
-        return new JobModel
-        {
-            Id = job.Id,
-            Title = job.Title,
-            Description = job.Description,
-            Budget = job.Budget,
-            Status = job.Status,
-            ClientId = job.ClientId,
-            FreelancerId = job.FreelancerId,
-            CreatedAt = job.CreatedAt,
-            UpdatedAt = job.UpdatedAt,
-            CompletedAt = job.CompletedAt,
-            Category = job.Category,
-            RequiredSkills = job.RequiredSkills,
-            EstimatedDurationInDays = job.EstimatedDurationInDays
-        };
-    }
-
-    private static Job MapToDomain(UpdateJobModel job)
-    {
-        return new Job
-        {
-            Title = job.Title,
-            Description = job.Description,
-            FreelancerId = job.FreelancerId,
-            Category = job.Category,
-            RequiredSkills = job.RequiredSkills,
-        };
-    }
 }
-
