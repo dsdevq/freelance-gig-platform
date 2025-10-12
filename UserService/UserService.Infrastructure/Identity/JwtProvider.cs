@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Shared.Application.Identity;
 using UserService.Application.Common.Interfaces;
 using UserService.Application.Models;
 

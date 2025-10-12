@@ -1,19 +1,85 @@
-version: '3.8'
+# FreelanceGIGPlatform Docker Compose
+# Profiles: dev / prod
 
 services:
+  ##############################
+  # USERSERVICE DATABASE
+  ##############################
+  userservice_db:
+    image: postgres:16-alpine
+    container_name: userservice_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 9485
+      POSTGRES_DB: user
+    volumes:
+      - userservice_data:/var/lib/postgresql/data
+    networks:
+      - freelance-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  userservice_db-dev:
+    extends: userservice_db
+    profiles: ["dev"]
+    container_name: userservice_db-dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/userservice_db:/var/lib/postgresql/data  # host-mounted for dev
+
+  ##############################
+  # JOBSERVICE DATABASE
+  ##############################
+  jobservice_db:
+    image: postgres:16-alpine
+    container_name: jobservice_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 9485
+      POSTGRES_DB: job
+    volumes:
+      - jobservice_data:/var/lib/postgresql/data
+    networks:
+      - freelance-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d job"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  jobservice_db-dev:
+    extends: jobservice_db
+    profiles: ["dev"]
+    container_name: jobservice_db-dev
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./data/jobservice_db:/var/lib/postgresql/data  # host-mounted for dev
+
+  ##############################
+  # USERSERVICE API
+  ##############################
   userservice:
     build:
-      context: ./UserService
-      dockerfile: UserService.API/Dockerfile
+      context: .
+      dockerfile: UserService/UserService.API/Dockerfile
     container_name: userservice
     ports:
       - "5224:8080"
-      - "7058:8081"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionStrings__DefaultConnection=Host=userservice_db;Port=5432;Database=userservice_db;Username=userservice;Password=userservice_dev_password
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ConnectionStrings__UserDb: Host=userservice_db;Port=5432;Database=user;Username=postgres;Password=9485
+      JwtSettings__SecretKey: ${JWT_SECRET_KEY:-QTzao1eY1adD9BMBGLzHv04KLZ98HapN70uINm1THcU=}
+      JwtSettings__Issuer: ${JWT_ISSUER:-FreelanceGIGPlatform.API}
+      JwtSettings__Audience: ${JWT_AUDIENCE:-FreelanceGIGPlatform.Client}
+      JwtSettings__ExpiryHours: ${JWT_EXPIRY_HOURS:-1}
     depends_on:
       userservice_db:
         condition: service_healthy
@@ -21,30 +87,35 @@ services:
       - freelance-network
     restart: unless-stopped
 
-  userservice_db:
-    image: postgres:16-alpine
-    container_name: userservice_db
-    environment:
-      - POSTGRES_USER=userservice
-      - POSTGRES_PASSWORD=userservice_dev_password
-      - POSTGRES_DB=userservice_db
+  ##############################
+  # JOBSERVICE API
+  ##############################
+  jobservice:
+    build:
+      context: .
+      dockerfile: JobService/JobService.API/Dockerfile
+    container_name: jobservice
     ports:
-      - "5432:5432"
-    volumes:
-      - userservice_data:/var/lib/postgresql/data
+      - "5225:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ConnectionStrings__DefaultConnection: Host=jobservice_db;Port=5432;Database=job;Username=postgres;Password=9485
+      JwtSettings__SecretKey: ${JWT_SECRET_KEY:-QTzao1eY1adD9BMBGLzHv04KLZ98HapN70uINm1THcU=}
+      JwtSettings__Issuer: ${JWT_ISSUER:-FreelanceGIGPlatform.API}
+      JwtSettings__Audience: ${JWT_AUDIENCE:-FreelanceGIGPlatform.Client}
+      JwtSettings__ExpiryHours: ${JWT_EXPIRY_HOURS:-1}
+    depends_on:
+      jobservice_db:
+        condition: service_healthy
     networks:
       - freelance-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U userservice"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
     restart: unless-stopped
 
 volumes:
   userservice_data:
+  jobservice_data:
 
 networks:
   freelance-network:
     driver: bridge
-

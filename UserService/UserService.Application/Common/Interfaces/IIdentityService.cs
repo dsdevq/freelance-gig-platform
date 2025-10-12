@@ -1,6 +1,6 @@
-﻿using UserService.Application.Models;
+﻿using Shared.Domain.Enums;
+using UserService.Application.Models;
 using UserService.Domain.Entities;
-using UserService.Domain.Enums;
 
 namespace UserService.Application.Common.Interfaces;
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Infrastructure.Extensions;
 using UserService.Application.Common.Interfaces;
 using UserService.Domain.Entities;
 using UserService.Infrastructure.Identity;
@@ -14,28 +14,20 @@ namespace UserService.Infrastructure;
 
 public static class DependencyInjection
 {
-    public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        // JWT service
+        services.AddPostgresDbContext<UserDbContext>(configuration, "UserDb");
+        services.AddUnitOfWork<UnitOfWork>();
+
         services.AddTransient<IJwtProvider, JwtProvider>();
         services.AddScoped<IIdentityService, IdentityService>();
 
-        // Database
-        services.AddDbContext<UserDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("UserDb")));
-        
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-        // Repositories
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-
         services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<IDataSeederService, DataSeederService>();
 
-
         services.AddIdentity<User, UserRole>(options =>
             {
-                // Password settings
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequireNonAlphanumeric = true;
@@ -43,12 +35,10 @@ public static class DependencyInjection
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 1;
 
-                // Lockout
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 
-                // User
                 options.User.AllowedUserNameCharacters =
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = true;
@@ -56,7 +46,7 @@ public static class DependencyInjection
             .AddEntityFrameworkStores<UserDbContext>()
             .AddDefaultTokenProviders()
             .AddRoles<UserRole>();
-        
-        services.AddProblemDetails();
+
+        return services;
     }
 }

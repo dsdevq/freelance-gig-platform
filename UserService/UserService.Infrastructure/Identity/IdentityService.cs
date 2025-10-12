@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Shared.Application.Persistence;
+using Shared.Domain.Enums;
 using UserService.Application.Common.Interfaces;
 using UserService.Application.Models;
 using UserService.Domain.Entities;
-using UserService.Domain.Enums;
 using UserService.Domain.Exceptions;
 
 namespace UserService.Infrastructure.Identity;
@@ -16,11 +17,11 @@ public class IdentityService(UserManager<User> userManager,
     {
         var user = await userManager.FindByEmailAsync(model.Email);
         if (user is null) 
-            throw new LoginFailedException("Invalid email or password");
+            throw new LoginFailedException();
 
         var result = await signInManager.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: false);
         if (!result.Succeeded)
-            throw new LoginFailedException("Invalid email or password");
+            throw new LoginFailedException();
         
         var roles = await userManager.GetRolesAsync(user);
         var parsedRole = Enum.Parse<RoleType>(roles[0]);
@@ -49,11 +50,11 @@ public class IdentityService(UserManager<User> userManager,
 
             var createUser = await userManager.CreateAsync(user, model.Password);
             if (!createUser.Succeeded)
-                throw new SignUpFailedException(string.Join("; ", createUser.Errors.Select(e => e.Description)));
+                throw new SignUpFailedException(createUser.Errors);
 
             var assignRoleResult = await userManager.AddToRoleAsync(user, roleName.ToString());
             if (!assignRoleResult.Succeeded)
-                throw new SignUpFailedException(string.Join("; ", assignRoleResult.Errors.Select(e => e.Description)));
+                throw new SignUpFailedException(assignRoleResult.Errors);
 
             await transaction.CommitAsync(cancellationToken);
 

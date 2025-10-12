@@ -2,10 +2,9 @@
 
 public static class AuthRoutes
 {
-    private const string Base = "/auth";
-    private const string Register = $"{Base}/register";
-    public const string RegisterClient = $"{Register}/client";
-    public const string RegisterFreelancer = $"{Register}/freelancer";
-    public const string Login = $"{Base}/login";
-    public const string Refresh = $"{Base}/refresh";
+    public const string Base = "/auth";
+    public const string RegisterClient = "/register/client";
+    public const string RegisterFreelancer = "/register/freelancer";
+    public const string Login = "/login";
+    public const string Refresh = "/refresh";
 }
