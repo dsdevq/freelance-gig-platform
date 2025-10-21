@@ -63,6 +63,29 @@ services:
       - ./data/jobservice_db:/var/lib/postgresql/data  # host-mounted for dev
 
   ##############################
+  # RABBITMQ MESSAGE BROKER
+  ##############################
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - freelance-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  ##############################
   # USERSERVICE API
   ##############################
   userservice:
@@ -101,12 +124,23 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_HTTP_PORTS: "8080"
       ConnectionStrings__DefaultConnection: Host=jobservice_db;Port=5432;Database=job;Username=postgres;Password=9485
+      RabbitMq__HostName: rabbitmq
+      RabbitMq__Port: 5672
+      RabbitMq__UserName: guest
+      RabbitMq__Password: guest
+      RabbitMq__ExchangeName: job_service_exchange
+      RabbitMq__ExchangeType: topic
+      Outbox__Enabled: true
+      Outbox__ProcessingInterval: "00:00:10"
+      Outbox__BatchSize: 20
       JwtSettings__SecretKey: ${JWT_SECRET_KEY:-QTzao1eY1adD9BMBGLzHv04KLZ98HapN70uINm1THcU=}
       JwtSettings__Issuer: ${JWT_ISSUER:-FreelanceGIGPlatform.API}
       JwtSettings__Audience: ${JWT_AUDIENCE:-FreelanceGIGPlatform.Client}
       JwtSettings__ExpiryHours: ${JWT_EXPIRY_HOURS:-1}
     depends_on:
       jobservice_db:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
     networks:
       - freelance-network
@@ -115,6 +149,7 @@ services:
 volumes:
   userservice_data:
   jobservice_data:
+  rabbitmq_data:
 
 networks:
   freelance-network:

@@ -5,28 +5,18 @@ using Shared.Outbox.Interfaces;
 
 namespace Shared.Outbox.Services;
 
-public class OutboxBackgroundService : BackgroundService
+public class OutboxBackgroundService(
+    IServiceProvider serviceProvider,
+    ILogger<OutboxBackgroundService> logger,
+    TimeSpan? interval = null,
+    int batchSize = 20)
+    : BackgroundService
 {
-    private readonly IServiceProvider _serviceProvider;
-    private readonly ILogger<OutboxBackgroundService> _logger;
-    private readonly TimeSpan _interval;
-    private readonly int _batchSize;
-
-    public OutboxBackgroundService(
-        IServiceProvider serviceProvider,
-        ILogger<OutboxBackgroundService> logger,
-        TimeSpan? interval = null,
-        int batchSize = 20)
-    {
-        _serviceProvider = serviceProvider;
-        _logger = logger;
-        _interval = interval ?? TimeSpan.FromSeconds(10);
-        _batchSize = batchSize;
-    }
+    private readonly TimeSpan _interval = interval ?? TimeSpan.FromSeconds(10);
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("Outbox Background Service started");
+        logger.LogInformation("Outbox Background Service started");
 
         while (!stoppingToken.IsCancellationRequested)
         {
@@ -36,30 +26,30 @@ public class OutboxBackgroundService : BackgroundService
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error occurred while processing outbox messages");
+                logger.LogError(ex, "Error occurred while processing outbox messages");
             }
 
             await Task.Delay(_interval, stoppingToken);
         }
 
-        _logger.LogInformation("Outbox Background Service stopped");
+        logger.LogInformation("Outbox Background Service stopped");
     }
 
     private async Task ProcessOutboxMessagesAsync(CancellationToken cancellationToken)
     {
-        using var scope = _serviceProvider.CreateScope();
+        using var scope = serviceProvider.CreateScope();
         
         var repository = scope.ServiceProvider.GetRequiredService<IOutboxRepository>();
         var processor = scope.ServiceProvider.GetRequiredService<IOutboxProcessor>();
 
-        var messages = await repository.GetUnprocessedMessagesAsync(_batchSize, cancellationToken);
+        var messages = await repository.GetUnprocessedMessagesAsync(batchSize, cancellationToken);
 
         if (messages.Count == 0)
         {
             return;
         }
 
-        _logger.LogInformation("Processing {Count} outbox messages", messages.Count);
+        logger.LogInformation("Processing {Count} outbox messages", messages.Count);
 
         foreach (var message in messages)
         {
@@ -68,12 +58,12 @@ public class OutboxBackgroundService : BackgroundService
                 await processor.ProcessAsync(message, cancellationToken);
                 await repository.MarkAsProcessedAsync(message.Id, cancellationToken);
                 
-                _logger.LogInformation("Successfully processed outbox message {MessageId} of type {MessageType}", 
+                logger.LogInformation("Successfully processed outbox message {MessageId} of type {MessageType}", 
                     message.Id, message.Type);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to process outbox message {MessageId} of type {MessageType}", 
+                logger.LogError(ex, "Failed to process outbox message {MessageId} of type {MessageType}", 
                     message.Id, message.Type);
                 
                 await repository.MarkAsFailedAsync(message.Id, ex.Message, cancellationToken);

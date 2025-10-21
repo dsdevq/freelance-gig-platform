@@ -1,9 +1,12 @@
 using JobService.Application.Common.Interfaces;
+using JobService.Infrastructure.Messaging;
 using JobService.Infrastructure.Persistence;
 using JobService.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Infrastructure.Extensions;
+using Shared.Outbox.Extensions;
+using Shared.Outbox.Interfaces;
 
 namespace JobService.Infrastructure;
 
@@ -15,6 +18,10 @@ public static class DependencyInjection
         services.AddUnitOfWork<UnitOfWork>();
 
         services.AddScoped<IJobRepository, JobRepository>();
+
+        services.Configure<RabbitMqOptions>(configuration.GetSection("RabbitMq"));
+        services.AddSingleton<IOutboxProcessor, RabbitMqOutboxProcessor>();
+        services.AddOutbox<JobDbContext>(configuration);
 
         return services;
     }

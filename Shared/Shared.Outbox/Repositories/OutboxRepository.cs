@@ -4,18 +4,12 @@ using Shared.Outbox.Interfaces;
 
 namespace Shared.Outbox.Repositories;
 
-public class OutboxRepository<TContext> : IOutboxRepository where TContext : DbContext
+public class OutboxRepository<TContext>(TContext context) : IOutboxRepository
+    where TContext : DbContext
 {
-    private readonly TContext _context;
-
-    public OutboxRepository(TContext context)
-    {
-        _context = context;
-    }
-
     public async Task<List<OutboxMessage>> GetUnprocessedMessagesAsync(int batchSize, CancellationToken cancellationToken = default)
     {
-        return await _context.Set<OutboxMessage>()
+        return await context.Set<OutboxMessage>()
             .Where(x => x.ProcessedOnUtc == null)
             .OrderBy(x => x.OccurredOnUtc)
             .Take(batchSize)
@@ -24,33 +18,33 @@ public class OutboxRepository<TContext> : IOutboxRepository where TContext : DbC
 
     public async Task MarkAsProcessedAsync(Guid messageId, CancellationToken cancellationToken = default)
     {
-        var message = await _context.Set<OutboxMessage>()
+        var message = await context.Set<OutboxMessage>()
             .FirstOrDefaultAsync(x => x.Id == messageId, cancellationToken);
 
         if (message != null)
         {
             message.ProcessedOnUtc = DateTime.UtcNow;
             message.Error = null;
-            await _context.SaveChangesAsync(cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
         }
     }
 
     public async Task MarkAsFailedAsync(Guid messageId, string error, CancellationToken cancellationToken = default)
     {
-        var message = await _context.Set<OutboxMessage>()
+        var message = await context.Set<OutboxMessage>()
             .FirstOrDefaultAsync(x => x.Id == messageId, cancellationToken);
 
         if (message != null)
         {
             message.Error = error;
-            await _context.SaveChangesAsync(cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
         }
     }
 
     public async Task AddAsync(OutboxMessage message, CancellationToken cancellationToken = default)
     {
-        await _context.Set<OutboxMessage>().AddAsync(message, cancellationToken);
-        await _context.SaveChangesAsync(cancellationToken);
+        await context.Set<OutboxMessage>().AddAsync(message, cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
     }
 }
 

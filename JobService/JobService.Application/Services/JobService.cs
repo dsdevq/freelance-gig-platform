@@ -1,9 +1,13 @@
+using System.Text.Json;
 using AutoMapper;
 using FluentValidation;
 using JobService.Application.Common.Interfaces;
+using JobService.Application.Events;
 using JobService.Application.Models;
 using JobService.Domain.Entities;
 using Shared.Application.Persistence;
+using Shared.Outbox.Entities;
+using Shared.Outbox.Interfaces;
 
 namespace JobService.Application.Services;
 
@@ -12,7 +16,8 @@ public class JobService(
     IUnitOfWork unitOfWork,
     IMapper mapper,
     IValidator<CreateJobModel> createValidator,
-    IValidator<UpdateJobModel> updateValidator
+    IValidator<UpdateJobModel> updateValidator,
+    IOutboxRepository outboxRepository
 ) : IJobService
 {
     public async Task<JobModel?> GetJobByIdAsync(Guid id, CancellationToken cancellationToken = default)
@@ -51,7 +56,18 @@ public class JobService(
 
         var job = mapper.Map<Job>(model);
         await jobRepository.CreateAsync(job, cancellationToken);
-        await unitOfWork.SaveChangesAsync(cancellationToken);
+
+        var jobCreatedEvent = mapper.Map<JobCreatedEvent>(job);
+
+        var outboxMessage = new OutboxMessage
+        {
+            Id = Guid.NewGuid(),
+            Type = "JobCreatedEvent",
+            Content = JsonSerializer.Serialize(jobCreatedEvent),
+            OccurredOnUtc = DateTime.UtcNow
+        };
+
+        await outboxRepository.AddAsync(outboxMessage, cancellationToken);
 
         return mapper.Map<JobModel>(job);
     }
